@@ -1,0 +1,26 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+}
+
+main {
+	padding: 20px;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+section h2 {
+	margin-top: 0;
+}
+
+a:hover {
+	background-color: #444;
+}
+
+footer {
+	background-color: #ccc;
+	padding: 20px;
+	text-align: center;
+}
