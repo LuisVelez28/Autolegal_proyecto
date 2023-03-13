@@ -1,0 +1,58 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+main {
+	padding: 20px;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+section h2 {
+	margin-top: 0;
+}
+
+a:hover {
+	background-color: #444;
+}
+
+footer {
+	background-color: #ccc;
+	padding: 20px;
+	text-align: center;
+}
+
+#DivMision {
+	background-image: url(../assets/Mision.gif);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+#DivPolitica {
+	background-image: url(../assets/Politica.gif);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+#DivValores {
+	background-image: url(../assets/Valores.gif);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+#DivVision {
+	background-image: url(../assets/Vision2.gif);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+#DivHistoria {
+	background-image: url(../assets/Historia.gif);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
