@@ -27,3 +27,33 @@ footer {
 	padding: 20px;
 	text-align: center;
 }
+
+#DivMision {
+	background-image: url(Mision.gif);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+#DivPolitica {
+	background-image: url(Politica.gif);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+#DivValores {
+	background-image: url(Valores.gif);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+
+#DivVision {
+	background-image: url(Vision2.gif);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+#DivHistoria {
+	background-image: url(Historia.gif);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
