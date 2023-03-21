@@ -1,5 +1,6 @@
 body {
 	font-family: Arial, sans-serif;
+	padding-top: 55px;
 	margin: 0;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -22,7 +23,7 @@ a:hover {
 }
 
 footer {
-    position: fixed;
+	
     left: 0;
     bottom: 0;
     width: 100%;

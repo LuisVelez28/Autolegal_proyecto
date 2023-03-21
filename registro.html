@@ -1,139 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script src="Script.js"></script>
-    <title>Registro</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" href="styles/styles.css">
+	<title>Registro</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-success">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="Pagina.html">Autolegal</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Inicar Sesión</a>
-                </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="Conocernos.html">Nosotros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Empleados</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Rutas
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Medellin</a></li>
-                  <li><a class="dropdown-item" href="#">Anserma</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Mariquita</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Contacto</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-4">
-          <label for="validationCustom01" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="validationCustom01" value="" required>
-          <div class="valid-feedback">
-            Se ve bien!
-          </div>
-        </div>
-        <div class="col-md-4">
-          <label for="validationCustom02" class="form-label">Apellido</label>
-          <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-          <div class="valid-feedback">
-            Se ve bien!
-          </div>
-        </div>
-        <div class="col-md-4">
-            <label for="exampleInputEmail1" class="form-label">Correo</label>
-            <div class="input-group has-validation">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <span class="input-group-text" id="inputGroupPrepend">@</span>
-            <div class="invalid-feedback">
-                Proporcione un correo válido.
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Departamento</label>
-            <select class="form-select" id="validationCustom04" required>
-                <option selected disabled value="">Escoge...</option>
-                <option>Amazonas</option>
-                <option>Antioquia</option>
-                <option>Arauca</option>
-                <option>Atlántico</option>
-                <option>Bogotá</option>
-                <option>Bolivar</option>
-                <option>Boyacá</option>
-                <option>Caldas</option>
-                <option>Caquetá</option>
-                <option>Casanare</option>
-                <option>Cauca</option>
-                <option>Cesar</option>
-                <option>Chocó</option>
-                <option>Córdoba</option>
-                <option>Cundinamarca</option>
-                <option>Guainía</option>
-                <option>Guaviare</option>
-                <option>Huila</option>
-                <option>La Guajira</option>
-                <option>Magdalena</option>
-                <option>Meta</option>
-                <option>Nariño</option>
-                <option>Norte de Santander</option>
-                <option>Putumayo</option>
-                <option>Quindío</option>
-                <option>Risaralda</option>
-                <option>Santander</option>
-                <option>Sucre</option>
-                <option>Tolima</option>
-                <option>Valle del Cauca</option>
-                <option>Vaúpes</option>
-                <option>Vichada</option>    
-            
-            </select>
-          </div>
-          <div class="col-md-3">
-            <label for="validationCustom05" class="form-label">Municipio</label>
-            <input type="text" class="form-control" id="validationCustom05" required>
-            <div class="invalid-feedback">
-                Proporcione un Municipio válido.
-            </div>
-          </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-            <label class="form-check-label" for="invalidCheck">
-              Acepto terminos y condiciones
-            </label>
-            <div class="invalid-feedback">
-              Debes aceptar los terminos y condiciones para continuar
-            </div>
-          </div>
-        </div>
-        <a onclick="abrirVentanaEmergente()" href="#">Leer terminos y condiciones</a>
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit">Enviar</button>
-        </div>
-      </form>
+	<header id="header">
+		<!-- 
+			loaded from js
+		-->
+	</header>
+
+	<main class="container">
+		<form class="row g-3 needs-validation" novalidate>
+			<div class="col-md-4">
+				<label for="validationCustom01" class="form-label">Nombre</label>
+				<input type="text" class="form-control" id="validationCustom01" value="" required>
+				<div class="valid-feedback">
+				Se ve bien!
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label for="validationCustom02" class="form-label">Apellido</label>
+				<input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+				<div class="valid-feedback">
+				Se ve bien!
+				</div>
+			</div>
+			<div class="col-md-4">
+				<label for="exampleInputEmail1" class="form-label">Correo</label>
+				<div class="input-group has-validation">
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+				<span class="input-group-text" id="inputGroupPrepend">@</span>
+				<div class="invalid-feedback">
+					Proporcione un correo válido.
+				</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<label for="validationCustom04" class="form-label">Departamento</label>
+				<select class="form-select" id="validationCustom04" required>
+					<option selected disabled value="">Escoge...</option>
+					<option>Amazonas</option>
+					<option>Antioquia</option>
+					<option>Arauca</option>
+					<option>Atlántico</option>
+					<option>Bogotá</option>
+					<option>Bolivar</option>
+					<option>Boyacá</option>
+					<option>Caldas</option>
+					<option>Caquetá</option>
+					<option>Casanare</option>
+					<option>Cauca</option>
+					<option>Cesar</option>
+					<option>Chocó</option>
+					<option>Córdoba</option>
+					<option>Cundinamarca</option>
+					<option>Guainía</option>
+					<option>Guaviare</option>
+					<option>Huila</option>
+					<option>La Guajira</option>
+					<option>Magdalena</option>
+					<option>Meta</option>
+					<option>Nariño</option>
+					<option>Norte de Santander</option>
+					<option>Putumayo</option>
+					<option>Quindío</option>
+					<option>Risaralda</option>
+					<option>Santander</option>
+					<option>Sucre</option>
+					<option>Tolima</option>
+					<option>Valle del Cauca</option>
+					<option>Vaúpes</option>
+					<option>Vichada</option>    
+				
+				</select>
+				</div>
+				<div class="col-md-3">
+				<label for="validationCustom05" class="form-label">Municipio</label>
+				<input type="text" class="form-control" id="validationCustom05" required>
+				<div class="invalid-feedback">
+					Proporcione un Municipio válido.
+				</div>
+				</div>
+			<div class="col-12">
+				<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+				<label class="form-check-label" for="invalidCheck">
+					Acepto terminos y condiciones
+				</label>
+				<div class="invalid-feedback">
+					Debes aceptar los terminos y condiciones para continuar
+				</div>
+				</div>
+			</div>
+			<a onclick="abrirVentanaEmergente()" href="#">Leer terminos y condiciones</a>
+			<div class="col-12">
+				<button class="btn btn-primary" type="submit">Enviar</button>
+			</div>
+			</form>
+	</main>
+
+	<footer id="footer">
+		<!-- 
+			loaded from js
+		-->
+	</footer>
+
+	<script src="functions/Script.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 </body>
 </html>
