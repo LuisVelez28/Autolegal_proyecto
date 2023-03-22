@@ -35,14 +35,9 @@ function initTemplate() {
     '                               <a class="nav-link active" aria-current="page" href="conocernos.html">Nosotros</a>'+
     '                       </li>'+
     '                       <li class="nav-item dropdown">'+
-    '                           <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">'+
+    '                           <a class="nav-link active" href="rutas.html" aria-expanded="false">'+
     '                                   Rutas y horarios'+
     '                           </a>'+
-    '                           <ul class="dropdown-menu">'+
-    '                               <li><a class="dropdown-item" href="#">Medellin</a></li>'+
-    '                               <li><a class="dropdown-item" href="#">Anserma</a></li>'+
-    '                               <li><a class="dropdown-item" href="#">Mariquita</a></li>'+
-    '                           </ul>'+
     '                       </li>'+
     '                       <li class="nav-item">'+
     '                               <a class="nav-link active" href="#">Empleados</a>'+
