@@ -1,46 +1,100 @@
 <!DOCTYPE html>
 <html>
+
 <head id="head">
 	<title>Empresa de Transporte</title>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 </head>
+
 <body>
 	<header id="header">
 		<!-- 
 			loaded from js
 		-->
 	</header>
-	
+
 	<main class="container">
 		<h1>Bienvenido a la Empresa de Transporte</h1>
 		<p>Encuentra horarios y noticias de transporte interno de la ciudad</p>
-		
-		<section>
-			<h2>Horarios</h2>
-			<p>Encuentra los horarios de los diferentes recorridos en nuestra ciudad.</p>
-			<a href="#">Ver horarios</a>
-		</section>
-		
-		<section>
-			<h2>Noticias</h2>
-			<p>Lee nuestras noticias relacionadas al transporte de la ciudad.</p>
-			<a href="#">Ver noticias</a>
-		</section>
-		
-		<section>
-			<h2>Sobre Nosotros</h2>
-			<p>Conoce un poco más sobre nuestra empresa y nuestra historia.</p>
-			<a href="conocernos.html">Más información</a>
-		</section>
+
+<body>
+			<div id="contenedor">
+				<h3>Escribenos por algun objeto perdido en nuestros buses</h3>
+				<div id="formulario">
+					<form action="#" method="POST">
+						<label for="nombre">Nombre Completo:</label>
+						<input type="text" id="nombre">
+						<br>
+						<label for="correo">Correo electrónico:</label>
+						<input type="email" id="correo">
+						<br>
+						<label for="placa">Placa del bus:</label>
+						<input type="text" id="placa">
+						<br>
+						<label for="Descripcion">Descripción:</label>
+						<input type="text" id="Descripcion">
+						<br>
+						<input type="submit" value="Enviar">
+					</form>
+				</div>
+				<h3>Noticias mas importantes</h3>
+				<div id="slider">
+					<ul>
+						<li><img src="ruta_de_imagen_1.jpg"></li>
+						<li><img src="ruta_de_imagen_2.jpg"></li>
+						<li><img src="ruta_de_imagen_3.jpg"></li>
+						<li><img src="ruta_de_imagen_4.jpg"></li>
+					</ul>
+				</div>
+			</div>
+			<h3>Metodos de pagos</h3>
+			<div class="slider">
+				<div class="slide-track">
+
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/visa.svg" alt="visa">
+					</div>
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/mastercard.svg"
+							alt="mastercard">
+					</div>
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/american_express.svg"
+							alt="american express">
+					</div>
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/pse.svg" alt="PSE">
+					</div>
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/daviplata.svg"
+							alt="daviplata">
+					</div>
+
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/nequi.svg" alt="nequi">
+					</div>
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/efecty.svg" alt="efecty">
+					</div>
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/baloto.svg" alt="baloto">
+					</div>
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/sured.svg" alt="sured">
+					</div>
+					<div class="slide"><img src="https://cdn.pinbus.com/common/img/pagos/svg/codensa.svg" alt="codensa">
+					</div>
+				</div>
+			</div>
+
 	</main>
-	
+
+	<img class="btn-whatsapp"
+		src="https://static.vecteezy.com/system/resources/previews/018/819/287/non_2x/whatsapp-icon-transparent-free-png.png"
+		width="50" height="50" alt="Whatsapp"
+		onclick="window.location.href='https://wa.me/573001112233?text=Hola!%20Estoy%20interesado%20en%20tu%20servicio'">
+
 	<footer id="footer">
 		<!-- 
 			loaded from js
 		-->
 	</footer>
-	
+
 	<script src="functions/Script.js" charset="UTF-8"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
 </body>
+
 </html>

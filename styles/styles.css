@@ -1,9 +1,3 @@
-body {
-	font-family: Arial, sans-serif;
-	padding-top: 55px;
-	margin: 0;
-}
-
 main {
 	padding: 20px;
 }
@@ -21,41 +15,225 @@ a:hover {
 }
 
 footer {
-    /*position: fixed;*/	
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
+	/*position: fixed;*/
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 10px;
 	background-color: #ccc;
 	text-align: center;
+}
+
+#contenedor {
+	width: 100%;
+	margin: auto;
+	padding: 20px;
+	background-image: linear-gradient(0deg, rgba(121, 217, 5, 0.49) 0%, rgba(121, 217, 5, 0.49) 12.5%,rgba(123, 198, 17, 0.49) 12.5%, rgba(123, 198, 17, 0.49) 25%,rgba(125, 179, 29, 0.49) 25%, rgba(125, 179, 29, 0.49) 37.5%,rgba(127, 160, 41, 0.49) 37.5%, rgba(127, 160, 41, 0.49) 50%,rgba(129, 140, 53, 0.49) 50%, rgba(129, 140, 53, 0.49) 62.5%,rgba(131, 121, 65, 0.49) 62.5%, rgba(131, 121, 65, 0.49) 75%,rgba(133, 102, 77, 0.49) 75%, rgba(133, 102, 77, 0.49) 87.5%,rgba(135, 83, 89, 0.49) 87.5%, rgba(135, 83, 89, 0.49) 100%),linear-gradient(90deg, rgb(40, 120, 60) 0%, rgb(40, 120, 60) 12.5%,rgb(42, 128, 62) 12.5%, rgb(42, 128, 62) 25%,rgb(43, 136, 63) 25%, rgb(43, 136, 63) 37.5%,rgb(45, 144, 65) 37.5%, rgb(45, 144, 65) 50%,rgb(47, 153, 66) 50%, rgb(47, 153, 66) 62.5%,rgb(49, 161, 68) 62.5%, rgb(49, 161, 68) 75%,rgb(50, 169, 69) 75%, rgb(50, 169, 69) 87.5%,rgb(52, 177, 71) 87.5%, rgb(52, 177, 71) 100%);
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#formulario {
+	margin-bottom: 20px;
+}
+
+#slider {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+
+#slider ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#slider ul li {
+	display: block;
+	float: left;
+	width: 25%;
+	height: 100%;
+}
+
+#slider ul li img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 #DivMision {
 	background-image: url(../assets/Mision.gif);
 	background-repeat: no-repeat;
-	background-size:cover;
+	background-size: cover;
 }
 
 #DivPolitica {
 	background-image: url(../assets/Politica.gif);
 	background-repeat: no-repeat;
-	background-size:cover;
+	background-size: cover;
 }
 
 #DivValores {
 	background-image: url(../assets/Valores.gif);
 	background-repeat: no-repeat;
-	background-size:cover;
+	background-size: cover;
 }
 
 #DivVision {
 	background-image: url(../assets/Vision2.gif);
-	background-repeat:no-repeat;
-	background-size:cover;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #DivHistoria {
 	background-image: url(../assets/Historia.gif);
 	background-repeat: no-repeat;
-	background-size:cover;
+	background-size: cover;
+}
+
+img.btn-whatsapp {
+	display: block !important;
+	position: fixed;
+	z-index: 9999999;
+	bottom: 20px;
+	right: 20px;
+	cursor: pointer;
+	border-radius: 100px !important;
+}
+
+img.btn-whatsapp:hover {
+	border-radius: 100px !important;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(7, 94, 84, 1);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(7, 94, 84, 1);
+	box-shadow: 0px 0px 15px 0px rgba(7, 94, 84, 1);
+	transition-duration: 1s;
+}
+
+body {
+	min-height: 100vh;
+	background-image: linear-gradient(0, rgba(254, 178, 45, 0.31) 0%, rgba(254, 178, 45, 0.31) 16.667%, rgba(233, 154, 68, 0.31) 16.667%, rgba(233, 154, 68, 0.31) 33.334%, rgba(212, 131, 91, 0.31) 33.334%, rgba(212, 131, 91, 0.31) 50.001000000000005%, rgba(191, 107, 115, 0.31) 50.001%, rgba(191, 107, 115, 0.31) 66.668%, rgba(170, 84, 138, 0.31) 66.668%, rgba(170, 84, 138, 0.31) 83.33500000000001%, rgba(149, 60, 161, 0.31) 83.335%, rgba(149, 60, 161, 0.31) 100.002%), linear-gradient(90deg, rgb(77, 244, 119) 0%, rgb(77, 244, 119) 14.286%, rgb(76, 233, 127) 14.286%, rgb(76, 233, 127) 28.572%, rgb(75, 221, 136) 28.572%, rgb(75, 221, 136) 42.858%, rgb(74, 210, 144) 42.858%, rgb(74, 210, 144) 57.144%, rgb(72, 198, 152) 57.144%, rgb(72, 198, 152) 71.42999999999999%, rgb(71, 187, 161) 71.43%, rgb(71, 187, 161) 85.71600000000001%, rgb(70, 175, 169) 85.716%, rgb(70, 175, 169) 100.002%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: Arial, sans-serif;
+	padding-top: 55px;
+	margin: 0;
+}
+
+.slider {
+	display: flex;
+	height: auto;
+	margin: auto;
+	overflow: hidden;
+	align-items: center;
+}
+
+.slider:before {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	content: "";
+	width: 23.958%;
+	height: 110px;
+	background: linear-gradient(-90deg, hsla(0, 0%, 96.9%, 0), #f7f7f7);
+}
+
+.slider:after {
+	position: absolute;
+	right: 0;
+	content: "";
+	width: 23.958%;
+	height: 110px;
+	background: linear-gradient(90deg,
+			hsla(0, 0%, 96.9%, 0),
+			hsla(0, 0%, 96.9%, 0.99) 99%);
+}
+
+.slider .slide-track {
+	display: flex;
+	animation: scroll 35s linear infinite;
+	-webkit-animation: scroll 35s linear infinite;
+	width: calc(240px * 10);
+}
+
+.slider .slide {
+	cursor: pointer;
+	width: 180px;
+	height: auto;
+	padding: 10px;
+	margin: 20px;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+		rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.slider .slide img {
+	height: auto;
+	width: 160px;
+}
+
+@keyframes scroll {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	100% {
+		-webkit-transform: translateX(calc(-240px * 5));
+		transform: translateX(calc(-240px * 5));
+	}
+}
+
+#Descripcion {
+	width: 80%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+}
+
+.valid-checks {
+	margin: 10px 0;
+	padding: 5px 5px;
+	background-color: green ;
+	border-radius: 25px;
+	transition: .2 ease;
+	opacity: 1;
+}
+
+.valid-checks ul li {
+	position: relative;
+	font-size: 15px;
+	font-weight: 300;
+	margin: 8px 0;
+	color: greenyellow;
+	transition: .2s;
+}
+
+.valid-checks ul li i {
+	font-size: 20px;
+	margin-right: 8px;
+}
+
+.valid-checks ul li.checked {
+	color: white;
+	font-weight: 500;
+}
+
+.hide {
+	opacity: 0;
 }

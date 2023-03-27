@@ -7,7 +7,6 @@ function abrirVentanaEmergente() {
     ventana.document.write("<p> El Ministerio de Justicia y del Derecho ha establecido los siguientes canales para que estos derechos puedan ser ejercidos: a) Canal presencial: El ciudadano podrá presentar personalmente su solicitud relacionada con el tratamiento de sus datos personales en el Ministerio de Justicia y del Derecho, ubicado en la Calle 53 # 13-27 de Bogotá (única sede). b) Canal Telefónico: el ciudadano podrá comunicarse a la línea telefónica PBX (+57) (1) 4443100 o línea gratuita nacional 01-800-09-11170. c) Canal Virtual: Página web www.minjusticía.gov.co a través del link http://pqrs.minjusticia.gov.co o al Correo electrónico: servicio.ciudadano@minjusticia.gov.co </p>");
 }
 
-
 function initTemplate() {
     let head=document.getElementsByTagName("head")[0]
     let bootsJs=document.getElementById("boots-js")
