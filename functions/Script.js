@@ -39,10 +39,7 @@ function initTemplate() {
     '                           </a>'+
     '                       </li>'+
     '                       <li class="nav-item">'+
-    '                               <a class="nav-link active" href="#">Empleados</a>'+
-    '                       </li>'+
-    '                       <li class="nav-item">'+
-    '                               <a class="nav-link active">Contactanos</a>'+
+    '                               <a class="nav-link active" href="contactanos.html">Contactanos</a>'+
     '                       </li>'+
     '                   </ul>'+
     '                   <div>'+
@@ -54,7 +51,7 @@ function initTemplate() {
     '       </nav>'+
     ''
 
-    footer.innerHTML="<p>Todos los derechos reservados © Empresa de Transporte</p>"
+    footer.innerHTML="<p>Todos los derechos reservados © Empresa de Transporte</p>"+''
 
     bootsJs.setAttribute("src","https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js")
     bootsJs.setAttribute("integrity","sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN")
