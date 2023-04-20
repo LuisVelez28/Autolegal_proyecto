@@ -12,7 +12,8 @@ class TipoRutaController extends Controller
      */
     public function index()
     {
-        //
+        $tipos_ruta= Tipo_ruta::all();
+        return view('tipo_rutas.', compact('tipos_ruta'));
     }
 
     /**
@@ -28,7 +29,11 @@ class TipoRutaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipo_ruta= new Tipo_ruta();
+        $tipo_ruta->nombre=$request->nombre;
+        $tipo_ruta->descripcion=$request->descripcion;
+        $tipo_ruta->save();
+        return redirect()->route('tipo_rutas.');
     }
 
     /**
@@ -36,7 +41,8 @@ class TipoRutaController extends Controller
      */
     public function show(Tipo_ruta $tipo_ruta)
     {
-        //
+        $tipo_ruta= Tipo_ruta::find($tipo_ruta->id);
+        return view('tipo_rutas.', compact('tipo_ruta'));
     }
 
     /**
@@ -44,7 +50,8 @@ class TipoRutaController extends Controller
      */
     public function edit(Tipo_ruta $tipo_ruta)
     {
-        //
+        $tipo_ruta= Tipo_ruta::find($tipo_ruta->id);
+        return view('tipo_rutas.', compact('tipo_ruta'));
     }
 
     /**
@@ -52,7 +59,11 @@ class TipoRutaController extends Controller
      */
     public function update(Request $request, Tipo_ruta $tipo_ruta)
     {
-        //
+        $tipo_ruta= Tipo_ruta::find($tipo_ruta->id);
+        $tipo_ruta->nombre=$request->nombre;
+        $tipo_ruta->descripcion=$request->descripcion;
+        $tipo_ruta->save();
+        return redirect()->route('tipo_rutas.');
     }
 
     /**
@@ -60,6 +71,8 @@ class TipoRutaController extends Controller
      */
     public function destroy(Tipo_ruta $tipo_ruta)
     {
-        //
+        $tipo_ruta= Tipo_ruta::find($tipo_ruta->id);
+        $tipo_ruta->delete();
+        return redirect()->route('tipo_rutas.');
     }
 }

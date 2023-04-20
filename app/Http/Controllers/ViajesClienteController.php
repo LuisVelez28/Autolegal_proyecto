@@ -12,7 +12,8 @@ class ViajesClienteController extends Controller
      */
     public function index()
     {
-        //
+        $viajes_cliente= Viajes_cliente::all();
+        return view('viajes_cliente.', compact('viajes_cliente'));
     }
 
     /**
@@ -28,7 +29,11 @@ class ViajesClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $viajes_cliente= new Viajes_cliente();
+        $viajes_cliente->id_viaje=$request->id_viaje;
+        $viajes_cliente->id_cliente=$request->id_cliente;
+        $viajes_cliente->save();
+        return redirect()->route('viajes_cliente.');
     }
 
     /**
@@ -36,7 +41,8 @@ class ViajesClienteController extends Controller
      */
     public function show(Viajes_cliente $viajes_cliente)
     {
-        //
+        $viajes_cliente= Viajes_cliente::find($viajes_cliente->id);
+        return view('viajes_cliente.', compact('viajes_cliente'));
     }
 
     /**
@@ -44,7 +50,8 @@ class ViajesClienteController extends Controller
      */
     public function edit(Viajes_cliente $viajes_cliente)
     {
-        //
+        $viajes_cliente= Viajes_cliente::find($viajes_cliente->id);
+        return view('viajes_cliente.', compact('viajes_cliente'));
     }
 
     /**
@@ -52,7 +59,11 @@ class ViajesClienteController extends Controller
      */
     public function update(Request $request, Viajes_cliente $viajes_cliente)
     {
-        //
+        $viajes_cliente= Viajes_cliente::find($viajes_cliente->id);
+        $viajes_cliente->id_viaje=$request->id_viaje;
+        $viajes_cliente->id_cliente=$request->id_cliente;
+        $viajes_cliente->save();
+        return redirect()->route('viajes_cliente.');
     }
 
     /**
@@ -60,6 +71,8 @@ class ViajesClienteController extends Controller
      */
     public function destroy(Viajes_cliente $viajes_cliente)
     {
-        //
+        $viajes_cliente= Viajes_cliente::find($viajes_cliente->id);
+        $viajes_cliente->delete();
+        return redirect()->route('viajes_cliente.');
     }
 }

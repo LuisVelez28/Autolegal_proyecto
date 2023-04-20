@@ -12,7 +12,8 @@ class RolUsuarioController extends Controller
      */
     public function index()
     {
-        //
+        $roles_usuario= Rol_usuario::all();
+        return view('roles_usuario.', compact('roles_usuario'));
     }
 
     /**
@@ -28,7 +29,11 @@ class RolUsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rol_usuario= new Rol_usuario();
+        $rol_usuario->nombre=$request->nombre;
+        $rol_usuario->descripcion=$request->descripcion;
+        $rol_usuario->save();
+        return redirect()->route('roles_usuario.');
     }
 
     /**
@@ -36,7 +41,8 @@ class RolUsuarioController extends Controller
      */
     public function show(Rol_usuario $rol_usuario)
     {
-        //
+        $tipo_ruta= Rol_usuario::find($rol_usuario->id);
+        return view('roles_usuario.', compact('tipo_ruta'));
     }
 
     /**
@@ -44,7 +50,8 @@ class RolUsuarioController extends Controller
      */
     public function edit(Rol_usuario $rol_usuario)
     {
-        //
+        $rol_usuario= Rol_usuario::find($rol_usuario->id);
+        return view('roles_usuario.', compact('rol_usuario'));
     }
 
     /**
@@ -52,7 +59,11 @@ class RolUsuarioController extends Controller
      */
     public function update(Request $request, Rol_usuario $rol_usuario)
     {
-        //
+        $rol_usuario= Rol_usuario::find($rol_usuario->id);
+        $rol_usuario->nombre=$request->nombre;
+        $rol_usuario->descripcion=$request->descripcion;
+        $rol_usuario->save();
+        return redirect()->route('roles_usuario.');
     }
 
     /**
@@ -60,6 +71,8 @@ class RolUsuarioController extends Controller
      */
     public function destroy(Rol_usuario $rol_usuario)
     {
-        //
+        $rol_usuario= Rol_usuario::find($rol_usuario->id);
+        $rol_usuario->delete();
+        return redirect()->route('roles_usuario.');
     }
 }

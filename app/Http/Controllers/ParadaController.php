@@ -12,7 +12,8 @@ class ParadaController extends Controller
      */
     public function index()
     {
-        //
+        $paradas=Parada::all();
+        return view('paradas.',compact('paradas'));
     }
 
     /**
@@ -28,7 +29,13 @@ class ParadaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $parada= new Parada();
+        $parada->id_ruta=$request->id_ruta;
+        $parada->nombre=$request->nombre;
+        $parada->posicion=$request->posicion;
+        $parada->save();
+        return redirect()->route('paradas.');
+
     }
 
     /**
@@ -36,7 +43,8 @@ class ParadaController extends Controller
      */
     public function show(Parada $parada)
     {
-        //
+        $parada= Parada::find($parada->id);
+        return view('paradas.',compact('parada'));
     }
 
     /**
@@ -44,7 +52,8 @@ class ParadaController extends Controller
      */
     public function edit(Parada $parada)
     {
-        //
+        $parada= Parada::find($parada->id);
+        return view('paradas.',compact('parada'));
     }
 
     /**
@@ -52,7 +61,12 @@ class ParadaController extends Controller
      */
     public function update(Request $request, Parada $parada)
     {
-        //
+        $parada= Parada::find($parada->id);
+        $parada->id_ruta=$request->id_ruta;
+        $parada->nombre=$request->nombre;
+        $parada->posicion=$request->posicion;
+        $parada->save();
+        return redirect()->route('paradas.');
     }
 
     /**
@@ -60,6 +74,7 @@ class ParadaController extends Controller
      */
     public function destroy(Parada $parada)
     {
-        //
+        $parada->delete();
+        return redirect()->route('paradas.');
     }
 }

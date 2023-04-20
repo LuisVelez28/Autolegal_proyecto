@@ -12,7 +12,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        $usuarios= Usuario::all();
+        return view('usuarios.', compact('usuarios'));
     }
 
     /**
@@ -28,7 +29,17 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario=new Usuario();
+        $usuario->id_persona=$request->id_persona;
+        $usuario->username=$request->username;
+        //como se protege el de password
+        $usuario->password=$request->password;
+        $usuario->email=$request->email;
+        //esta campo es generado automaticamente
+        //$usuario->estado=$request->estado;
+        $usuario->id_rol_usuario=$request->id_rol_usuario;
+        $usuario->save();
+        return redirect()->route('usuarios.');
     }
 
     /**
@@ -36,7 +47,8 @@ class UsuarioController extends Controller
      */
     public function show(Usuario $usuario)
     {
-        //
+        $usuario= Usuario::find($usuario->id);
+        return view('usuarios.', compact('usuario'));
     }
 
     /**
@@ -44,7 +56,8 @@ class UsuarioController extends Controller
      */
     public function edit(Usuario $usuario)
     {
-        //
+        $usuario= Usuario::find($usuario->id);
+        return view('usuarios.', compact('usuario'));
     }
 
     /**
@@ -52,7 +65,17 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
-        //
+        $usuario= Usuario::find($usuario->id);
+        $usuario->id_persona=$request->id_persona;
+        $usuario->username=$request->username;
+        //como se protege el de password
+        $usuario->password=$request->password;
+        $usuario->email=$request->email;
+        //esta campo es generado automaticamente
+        //$usuario->estado=$request->estado;
+        $usuario->id_rol_usuario=$request->id_rol_usuario;
+        $usuario->save();
+        return redirect()->route('usuarios.');
     }
 
     /**
@@ -60,6 +83,8 @@ class UsuarioController extends Controller
      */
     public function destroy(Usuario $usuario)
     {
-        //
+        $usuario= Usuario::find($usuario->id);
+        $usuario->delete();
+        return redirect()->route('usuarios.');
     }
 }

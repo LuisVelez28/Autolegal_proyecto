@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('email');
-            $table->boolean('estado');
+            $table->boolean('estado')->default(1)->nullable();
             $table->foreignId('id-rol-usuario')->constrained('rol_usuarios');
             $table->timestamps();
         });

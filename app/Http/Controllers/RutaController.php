@@ -12,7 +12,8 @@ class RutaController extends Controller
      */
     public function index()
     {
-        //
+        $rutas=Ruta::all();
+        return view('rutas.',compact('rutas'));
     }
 
     /**
@@ -28,7 +29,11 @@ class RutaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ruta=new Ruta();
+        $ruta->id_tipo_ruta=$request->id_tipo_ruta;
+        $ruta->nombre=$request->nombre;
+        $ruta->save();
+        return redirect()->route('rutas.');
     }
 
     /**
@@ -36,7 +41,8 @@ class RutaController extends Controller
      */
     public function show(Ruta $ruta)
     {
-        //
+        $ruta= Ruta::find($ruta->id);
+        return view('rutas.',compact('ruta'));
     }
 
     /**
@@ -44,7 +50,8 @@ class RutaController extends Controller
      */
     public function edit(Ruta $ruta)
     {
-        //
+        $ruta= Ruta::find($ruta->id);
+        return view('rutas.',compact('ruta'));
     }
 
     /**
@@ -52,7 +59,11 @@ class RutaController extends Controller
      */
     public function update(Request $request, Ruta $ruta)
     {
-        //
+        $ruta= Ruta::find($ruta->id);
+        $ruta->id_tipo_ruta=$request->id_tipo_ruta;
+        $ruta->nombre=$request->nombre;
+        $ruta->save();
+        return redirect()->route('rutas.');
     }
 
     /**
@@ -60,6 +71,8 @@ class RutaController extends Controller
      */
     public function destroy(Ruta $ruta)
     {
-        //
+        $ruta= Ruta::find($ruta->id);
+        $ruta->delete();
+        return redirect()->route('rutas.');
     }
 }

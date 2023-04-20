@@ -12,7 +12,8 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        $empleados= Empleado::all();
+        return view('empleados.', compact('empleados'));
     }
 
     /**
@@ -28,7 +29,13 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $empleado= new Empleado();
+        $empleado->nombre=$request->nombre;
+        $empleado->cedula=$request->cedula;
+        $empleado->telefono=$request->telefono;
+        $empleado->id_tipo_empleado=$request->id_tipo_empleado;
+        $empleado->save();
+        return redirect()->route('empleados.');
     }
 
     /**
@@ -36,7 +43,8 @@ class EmpleadoController extends Controller
      */
     public function show(Empleado $empleado)
     {
-        //
+        $empleado= Empleado::find($empleado->id);
+        return view('empleados.',compact('empleado'));
     }
 
     /**
@@ -44,7 +52,8 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $empleado)
     {
-        //
+        $empleado= Empleado::find($empleado->id);
+        return view('empleados.',compact('empleado'));
     }
 
     /**
@@ -52,7 +61,13 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, Empleado $empleado)
     {
-        //
+        $empleado= Empleado::find($empleado->id);
+        $empleado->nombre=$request->nombre;
+        $empleado->cedula=$request->cedula;
+        $empleado->telefono=$request->telefono;
+        $empleado->id_tipo_empleado=$request->id_tipo_empleado;
+        $empleado->save();
+        return redirect()->route('empleados.');
     }
 
     /**
@@ -60,6 +75,8 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //
+        $empleado= Empleado::find($empleado->id);
+        $empleado->delete();
+        return redirect()->route('empleados.');
     }
 }

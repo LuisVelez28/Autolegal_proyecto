@@ -12,7 +12,8 @@ class ViajeController extends Controller
      */
     public function index()
     {
-        //
+        $viajes= Viaje::all();
+        return view('viajes.', compact('viajes'));
     }
 
     /**
@@ -28,7 +29,17 @@ class ViajeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $viaje= new Viaje();
+        $viaje->id_ruta=$request->id_ruta;
+        $viaje->id_conductor=$request->id_conductor;
+        $viaje->id_vehiculo=$request->id_vehiculo;
+        $viaje->fecha_salida=$request->fecha_salida;
+        $viaje->fecha_llegada=$request->fecha_llegada;
+        //no es un campo que se ingrese, mas bien seria calculado
+        //$viaje->cupos_disponibles=$request->cupos_disponibles;
+        $viaje->costo=$request->costo;
+        $viaje->save();
+        return redirect()->route('viajes.');
     }
 
     /**
@@ -36,7 +47,8 @@ class ViajeController extends Controller
      */
     public function show(Viaje $viaje)
     {
-        //
+        $viaje= Viaje::find($viaje->id);
+        return view('viajes.', compact('viaje'));
     }
 
     /**
@@ -44,7 +56,8 @@ class ViajeController extends Controller
      */
     public function edit(Viaje $viaje)
     {
-        //
+        $viaje= Viaje::find($viaje->id);
+        return view('viajes.', compact('viaje'));
     }
 
     /**
@@ -52,7 +65,17 @@ class ViajeController extends Controller
      */
     public function update(Request $request, Viaje $viaje)
     {
-        //
+        $viaje= Viaje::find($viaje->id);
+        $viaje->id_ruta=$request->id_ruta;
+        $viaje->id_conductor=$request->id_conductor;
+        $viaje->id_vehiculo=$request->id_vehiculo;
+        $viaje->fecha_salida=$request->fecha_salida;
+        $viaje->fecha_llegada=$request->fecha_llegada;
+        //el cambio automatizado se haria por este metodo
+        //$viaje->cupos_disponibles=$request->cupos_disponibles;
+        $viaje->costo=$request->costo;
+        $viaje->save();
+        return redirect()->route('viajes.');
     }
 
     /**
@@ -60,6 +83,8 @@ class ViajeController extends Controller
      */
     public function destroy(Viaje $viaje)
     {
-        //
+        $viaje= Viaje::find($viaje->id);
+        $viaje->delete();
+        return redirect()->route('viajes.');
     }
 }

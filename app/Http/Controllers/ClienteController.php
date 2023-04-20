@@ -12,7 +12,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Cliente::all();
+        return view('clientes.', compact('clientes'));//revisar que pagina se va usar para listar los clientes
     }
 
     /**
@@ -28,7 +29,12 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cliente= new Cliente();
+        $cliente->nombre=$request->nombre;
+        $cliente->cedula=$request->cedula;
+        $cliente->telefono=$request->telefono;
+        $cliente->save();
+        return redirect()->route('clientes.');
     }
 
     /**
@@ -36,7 +42,8 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        $cliente= Cliente::find($cliente->id);
+        return view('clientes.', compact('cliente'));
     }
 
     /**
@@ -44,7 +51,8 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        $cliente= Cliente::find($cliente->id);
+        return view('clientes.', compact('cliente'));
     }
 
     /**
@@ -52,7 +60,12 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        $cliente= Cliente::find($cliente->id);//revisar con documentacion actualizada
+        $cliente->nombre=$request->nombre;
+        $cliente->cedula=$request->cedula;
+        $cliente->telefono=$request->telefono;
+        $cliente->save();
+        return redirect()->route('clientes.');
     }
 
     /**
@@ -60,6 +73,9 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente= Cliente::find($cliente->id);//revisar con documentacion actualizada
+        $cliente->delete();
+        return redirect()->route('clientes.');
+
     }
 }

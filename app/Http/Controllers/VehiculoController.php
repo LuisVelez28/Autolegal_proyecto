@@ -12,7 +12,8 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        //
+        $vehiculos= Vehiculo::all();
+        return view('vehiculo.',compact('vehiculos'));
     }
 
     /**
@@ -28,7 +29,17 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vehiculo= new Vehiculo();
+        $vehiculo->placa=$request->placa;
+        $vehiculo->modelo=$request->modelo;
+        $vehiculo->marca=$request->marca;
+        //es calculado
+        // $vehiculo->capacidad=$request->capacidad;
+        //es automatico
+        //$vehiculo->estado=$request->estado;
+        $vehiculo->id_tipo_vehiculo=$request->id_tipo_vehiculo;
+        $vehiculo->save();
+        return redirect()->route('vehiculo.');
     }
 
     /**
@@ -36,7 +47,8 @@ class VehiculoController extends Controller
      */
     public function show(Vehiculo $vehiculo)
     {
-        //
+        $vehiculo= Vehiculo::find($vehiculo->id);
+        return view('vehiculo.',compact('vehiculo'));
     }
 
     /**
@@ -44,7 +56,8 @@ class VehiculoController extends Controller
      */
     public function edit(Vehiculo $vehiculo)
     {
-        //
+        $vehiculo= Vehiculo::find($vehiculo->id);
+        return view('vehiculo.',compact('vehiculo'));
     }
 
     /**
@@ -52,7 +65,17 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, Vehiculo $vehiculo)
     {
-        //
+        $vehiculo= Vehiculo::find($vehiculo->id);
+        $vehiculo->placa=$request->placa;
+        $vehiculo->modelo=$request->modelo;
+        $vehiculo->marca=$request->marca;
+        //es calculado
+        // $vehiculo->capacidad=$request->capacidad;
+        //es automatico
+        //$vehiculo->estado=$request->estado;
+        $vehiculo->id_tipo_vehiculo=$request->id_tipo_vehiculo;
+        $vehiculo->save();
+        return redirect()->route('vehiculo.');
     }
 
     /**
@@ -60,6 +83,8 @@ class VehiculoController extends Controller
      */
     public function destroy(Vehiculo $vehiculo)
     {
-        //
+        $vehiculo= Vehiculo::find($vehiculo->id);
+        $vehiculo->delete();
+        return redirect()->route('vehiculo.');
     }
 }

@@ -12,7 +12,8 @@ class TipoVehiculoController extends Controller
      */
     public function index()
     {
-        //
+        $tipos_vehiculo = Tipo_vehiculo::all();
+        return view('tipo_vehiculo.', compact('tipos_vehiculo'));
     }
 
     /**
@@ -28,7 +29,11 @@ class TipoVehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipo_vehiculo= new Tipo_vehiculo();
+        $tipo_vehiculo->nombre=$request->nombre;
+        $tipo_vehiculo->descripcion=$request->descripcion;
+        $tipo_vehiculo->save();
+        return redirect()->route('tipo_vehiculo.');
     }
 
     /**
@@ -36,7 +41,8 @@ class TipoVehiculoController extends Controller
      */
     public function show(Tipo_vehiculo $tipo_vehiculo)
     {
-        //
+        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo->id);
+        return view('tipo_vehiculo.', compact('tipo_vehiculo'));
     }
 
     /**
@@ -44,7 +50,8 @@ class TipoVehiculoController extends Controller
      */
     public function edit(Tipo_vehiculo $tipo_vehiculo)
     {
-        //
+        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo->id);
+        return view('tipo_vehiculo.', compact('tipo_vehiculo'));
     }
 
     /**
@@ -52,7 +59,11 @@ class TipoVehiculoController extends Controller
      */
     public function update(Request $request, Tipo_vehiculo $tipo_vehiculo)
     {
-        //
+        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo->id);
+        $tipo_vehiculo->nombre=$request->nombre;
+        $tipo_vehiculo->descripcion=$request->descripcion;
+        $tipo_vehiculo->save();
+        return redirect()->route('tipo_vehiculo.');
     }
 
     /**
@@ -60,6 +71,8 @@ class TipoVehiculoController extends Controller
      */
     public function destroy(Tipo_vehiculo $tipo_vehiculo)
     {
-        //
+        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo->id);
+        $tipo_vehiculo->delete();
+        return redirect()->route('tipo_vehiculo.');
     }
 }
