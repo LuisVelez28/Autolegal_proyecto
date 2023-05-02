@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// traer la vista de la pagina principal que esta en la carpeta views/main/index.blade.php
+Route::get('/index', function () {
+    return view('main.index');
+});
+Route::get('/ingreso', function () {
+    return view('ingreso.ingreso');
+});
+Route::get('/contactanos', function () {
+    return view('contactanos.contactanos');
+});
+Route::get('/conocernos', function () {
+    return view('conocernos.conocernos');
+});
+Route::get('/rutas', function () {
+    return view('rutas.rutas');
+});
+Route::get('/registro', function () {
+    return view('iniciarsesion.registro');
 });
