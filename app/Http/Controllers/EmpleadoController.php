@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empleado;
+use App\Models\Tipo_empleado;
 use Illuminate\Http\Request;
 
 class EmpleadoController extends Controller
@@ -13,7 +14,8 @@ class EmpleadoController extends Controller
     public function index()
     {
         $empleados= Empleado::all();
-        return view('empleados.', compact('empleados'));
+        $tipos_empleado= Tipo_empleado::all();
+        return view('cuenta_Admin.empleado.create', compact('empleados','tipos_empleado'));
     }
 
     /**
@@ -35,7 +37,7 @@ class EmpleadoController extends Controller
         $empleado->telefono=$request->telefono;
         $empleado->id_tipo_empleado=$request->id_tipo_empleado;
         $empleado->save();
-        return redirect()->route('empleados.');
+        return redirect()->route('empleados.index');
     }
 
     /**
@@ -50,33 +52,35 @@ class EmpleadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Empleado $empleado)
+    public function edit(/*Empleado*/ $empleado)
     {
-        $empleado= Empleado::find($empleado->id);
-        return view('empleados.',compact('empleado'));
+        $empleado= Empleado::find($empleado);
+        $tipo = strval(Tipo_empleado::find($empleado->id_tipo_empleado)->id);
+        $tipos_empleado = Tipo_empleado::all();
+        return view('cuenta_Admin.empleado.edit',compact('empleado','tipos_empleado','tipo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, /*Empleado*/ $empleado)
     {
-        $empleado= Empleado::find($empleado->id);
+        $empleado= Empleado::find($empleado);
         $empleado->nombre=$request->nombre;
         $empleado->cedula=$request->cedula;
         $empleado->telefono=$request->telefono;
         $empleado->id_tipo_empleado=$request->id_tipo_empleado;
         $empleado->save();
-        return redirect()->route('empleados.');
+        return redirect()->route('empleados.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Empleado $empleado)
+    public function destroy(/*Empleado*/ $empleado)
     {
-        $empleado= Empleado::find($empleado->id);
+        $empleado= Empleado::find($empleado);
         $empleado->delete();
-        return redirect()->route('empleados.');
+        return redirect()->route('empleados.index');
     }
 }
