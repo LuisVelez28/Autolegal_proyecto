@@ -34,3 +34,6 @@ Route::get('/rutas', function () {
 Route::get('/registro', function () {
     return view('iniciarsesion.registro');
 });
+Route::get('/CuentaAdmin', function () {
+    return view('cuenta_Admin.IngresoBus');
+});

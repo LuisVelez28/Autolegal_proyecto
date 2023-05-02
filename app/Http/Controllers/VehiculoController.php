@@ -13,7 +13,7 @@ class VehiculoController extends Controller
     public function index()
     {
         $vehiculos= Vehiculo::all();
-        return view('vehiculo.',compact('vehiculos'));
+        return view('cuenta_Admin.IngresoBus.',compact('vehiculos'));
     }
 
     /**
