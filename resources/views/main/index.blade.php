@@ -8,8 +8,8 @@
 @section('index')
     <!--Cuerpo-->
     <main class="container">
-        <h1 style="text-align: center">Bienvenido a la Empresa de Transporte</h1>
-        <p style="text-align: center">Encuentra horarios y noticias de transporte interno de la ciudad</p>
+        <h1>Bienvenido a la Empresa de Transporte</h1>
+        <p>Encuentra horarios y noticias de transporte interno de la ciudad</p>
         <div id="contenedor">
             <h3 style="text-align: center">Noticias mas importantes</h3>
             <br>

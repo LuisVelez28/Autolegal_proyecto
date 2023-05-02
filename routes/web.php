@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 // traer la vista de la pagina principal que esta en la carpeta views/main/index.blade.php
-Route::get('/index', function () {
+
+Route::get('/', function () {
     return view('main.index');
 });
 Route::get('/ingreso', function () {
