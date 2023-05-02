@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('marca');
             $table->integer('capacidad');
             $table->boolean('estado')->default(1); // true = disponible, false = no disponible
-            $table->foreignId('id-tipo-vehiculo')->constrained('tipo_vehiculos');
+            $table->foreignId('id_tipo_vehiculo')->constrained('tipo_vehiculos');
             $table->timestamps();
         });
     }

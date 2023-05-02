@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tipo_vehiculo;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,9 @@ class VehiculoController extends Controller
     public function index()
     {
         $vehiculos= Vehiculo::all();
-        return view('cuenta_Admin.IngresoBus.',compact('vehiculos'));
+        $tipos_vehiculo= Tipo_vehiculo::all();
+        // dd($vehiculos);
+        return view('cuenta_Admin.IngresoBus',compact('vehiculos','tipos_vehiculo'));
     }
 
     /**
@@ -33,13 +36,12 @@ class VehiculoController extends Controller
         $vehiculo->placa=$request->placa;
         $vehiculo->modelo=$request->modelo;
         $vehiculo->marca=$request->marca;
-        //es calculado
-        // $vehiculo->capacidad=$request->capacidad;
+        $vehiculo->capacidad=$request->capacidad;
         //es automatico
         //$vehiculo->estado=$request->estado;
         $vehiculo->id_tipo_vehiculo=$request->id_tipo_vehiculo;
         $vehiculo->save();
-        return redirect()->route('vehiculo.');
+        return redirect()->route('CuentaAdmin.index');
     }
 
     /**
@@ -54,37 +56,41 @@ class VehiculoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Vehiculo $vehiculo)
+    public function edit(/*Vehiculo*/ $vehiculo)
     {
-        $vehiculo= Vehiculo::find($vehiculo->id);
-        return view('vehiculo.',compact('vehiculo'));
+        // dd($vehiculo);
+        $vehiculo= Vehiculo::find($vehiculo);
+        //dd($vehiculo);
+        $tipo= strval(Tipo_vehiculo::find($vehiculo->id_tipo_vehiculo)->id);
+        $tipos_vehiculo= Tipo_vehiculo::all();
+        //dd($tipo);
+        return view('cuenta_Admin.editbus',compact('vehiculo','tipos_vehiculo','tipo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vehiculo $vehiculo)
+    public function update(Request $request, /*Vehiculo*/ $vehiculo)
     {
-        $vehiculo= Vehiculo::find($vehiculo->id);
+        $vehiculo= Vehiculo::find(intval($vehiculo));
         $vehiculo->placa=$request->placa;
         $vehiculo->modelo=$request->modelo;
         $vehiculo->marca=$request->marca;
-        //es calculado
-        // $vehiculo->capacidad=$request->capacidad;
+        $vehiculo->capacidad=$request->capacidad;
         //es automatico
         //$vehiculo->estado=$request->estado;
         $vehiculo->id_tipo_vehiculo=$request->id_tipo_vehiculo;
         $vehiculo->save();
-        return redirect()->route('vehiculo.');
+        return redirect()->route('CuentaAdmin.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vehiculo $vehiculo)
+    public function destroy(/*Vehiculo*/ $vehiculo)
     {
-        $vehiculo= Vehiculo::find($vehiculo->id);
+        $vehiculo= Vehiculo::find($vehiculo);
         $vehiculo->delete();
-        return redirect()->route('vehiculo.');
+        return redirect()->route('CuentaAdmin.index');
     }
 }
