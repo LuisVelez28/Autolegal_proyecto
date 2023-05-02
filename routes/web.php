@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
 
@@ -40,3 +41,7 @@ Route::get('/registro', function () {
 // });
 
 Route::resource('/CuentaAdmin',VehiculoController::class);
+
+Route::resource('/clientes',ClienteController::class);
+
+

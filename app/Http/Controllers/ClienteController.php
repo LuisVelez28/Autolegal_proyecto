@@ -13,7 +13,7 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::all();
-        return view('clientes.', compact('clientes'));//revisar que pagina se va usar para listar los clientes
+        return view('cuenta_Admin.cliente.create', compact('clientes'));//revisar que pagina se va usar para listar los clientes
     }
 
     /**
@@ -34,7 +34,7 @@ class ClienteController extends Controller
         $cliente->cedula=$request->cedula;
         $cliente->telefono=$request->telefono;
         $cliente->save();
-        return redirect()->route('clientes.');
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -49,10 +49,10 @@ class ClienteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Cliente $cliente)
+    public function edit(/*Cliente*/ $cliente)
     {
-        $cliente= Cliente::find($cliente->id);
-        return view('clientes.', compact('cliente'));
+        $cliente= Cliente::find($cliente);
+        return view('cuenta_Admin.cliente.edit', compact('cliente'));
     }
 
     /**
@@ -65,17 +65,17 @@ class ClienteController extends Controller
         $cliente->cedula=$request->cedula;
         $cliente->telefono=$request->telefono;
         $cliente->save();
-        return redirect()->route('clientes.');
+        return redirect()->route('clientes.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(/*Cliente*/ $cliente)
     {
-        $cliente= Cliente::find($cliente->id);//revisar con documentacion actualizada
+        $cliente= Cliente::find($cliente);//revisar con documentacion actualizada
         $cliente->delete();
-        return redirect()->route('clientes.');
+        return redirect()->route('clientes.index');
 
     }
 }
