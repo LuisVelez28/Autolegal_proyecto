@@ -30,13 +30,14 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $usuario=new Usuario();
-        $usuario->id_persona=$request->id_persona;
+        $usuario->id_cliente=$request->id_cliente;
+        $usuario->id_empleado=$request->id_empleado;
         $usuario->username=$request->username;
         //como se protege el de password
         $usuario->password=$request->password;
         $usuario->email=$request->email;
         //esta campo es generado automaticamente
-        //$usuario->estado=$request->estado;
+        $usuario->estado=$request->estado;
         $usuario->id_rol_usuario=$request->id_rol_usuario;
         $usuario->save();
         return redirect()->route('usuarios.');

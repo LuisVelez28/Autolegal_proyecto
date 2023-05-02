@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('viajes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id-ruta')->constrained('rutas');
-            $table->foreignId('id-conductor')->constrained('empleados');
-            $table->foreignId('id-vehiculo')->constrained('vehiculos');
-            $table->date('fecha_salida');
-            $table->date('fecha_llegada');
+            $table->foreignId('id_ruta')->constrained('rutas');
+            $table->foreignId('id_conductor')->constrained('empleados');
+            $table->foreignId('id_vehiculo')->constrained('vehiculos');
+            $table->dateTime('fecha_salida');
+            $table->dateTime('fecha_llegada');
             $table->integer('cupos_disponibles');
             $table->float('costo');
             $table->timestamps();

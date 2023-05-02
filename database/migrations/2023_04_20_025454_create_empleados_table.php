@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('cedula');  
+            $table->string('cedula')->unique();
             $table->string('telefono');
-            $table->foreignId('id-tipo-empleado')->constrained('tipo_empleados');
+            $table->foreignId('id_tipo_empleado')->constrained('tipo_empleados');
             $table->timestamps();
         });
     }

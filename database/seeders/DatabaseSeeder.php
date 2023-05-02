@@ -15,6 +15,16 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TiposVehiculosSeeder::class,
             VehiculosSeeder::class,
+            RolesUsuarioSeeder::class,
+            TiposEmpleadosSeeder::class,
+            TiposRutasSeeder::class,
+            RutasSeeder::class,
+            ParadasSeeder::class,
+            ClientesSeeder::class,
+            EmpleadosSeeder::class,
+            ViajesSeeder::class,
+            ViajesClientesSeeder::class,
+            UsuariosSeeder::class,
 
         ]);
     }

@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('viajes_clientes', function (Blueprint $table) {
             $table->id();
-            //create 2 foreing keys
-            $table->foreignId('id-viaje')->constrained('viajes');
-            $table->foreignId('id-cliente')->constrained('clientes');
+            $table->foreignId('id_viaje')->constrained('viajes');
+            $table->foreignId('id_cliente')->constrained('clientes');
             $table->timestamps();
         });
     }

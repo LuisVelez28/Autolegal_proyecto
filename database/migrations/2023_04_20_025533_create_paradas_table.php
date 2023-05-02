@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('paradas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id-ruta')->constrained('rutas');
+            $table->foreignId('id_ruta')->constrained('rutas');
             $table->string('nombre');
             $table->string('posicion');
             $table->timestamps();
