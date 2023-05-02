@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\RutaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
 
@@ -46,3 +47,5 @@ Route::resource('/CuentaAdmin',VehiculoController::class);
 Route::resource('/clientes',ClienteController::class);
 
 Route::resource('/empleados',EmpleadoController::class);
+
+Route::resource('/rutas',RutaController::class);

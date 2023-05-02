@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ruta;
+use App\Models\Tipo_ruta;
 use Illuminate\Http\Request;
 
 class RutaController extends Controller
@@ -13,7 +14,8 @@ class RutaController extends Controller
     public function index()
     {
         $rutas=Ruta::all();
-        return view('rutas.',compact('rutas'));
+        $tipos_ruta= Tipo_ruta::all();
+        return view('cuenta_Admin.ruta.create',compact('rutas','tipos_ruta'));
     }
 
     /**
@@ -33,7 +35,7 @@ class RutaController extends Controller
         $ruta->id_tipo_ruta=$request->id_tipo_ruta;
         $ruta->nombre=$request->nombre;
         $ruta->save();
-        return redirect()->route('rutas.');
+        return redirect()->route('rutas.index');
     }
 
     /**
@@ -48,31 +50,33 @@ class RutaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Ruta $ruta)
+    public function edit(/*Ruta*/ $ruta)
     {
-        $ruta= Ruta::find($ruta->id);
-        return view('rutas.',compact('ruta'));
+        $ruta= Ruta::find($ruta);
+        $tipo= strval(Tipo_ruta::find($ruta->id_tipo_ruta)->id);
+        $tipos_ruta= Tipo_ruta::all();
+        return view('cuenta_Admin.ruta.edit',compact('ruta','tipos_ruta','tipo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Ruta $ruta)
+    public function update(Request $request, /*Ruta*/ $ruta)
     {
-        $ruta= Ruta::find($ruta->id);
+        $ruta= Ruta::find($ruta);
         $ruta->id_tipo_ruta=$request->id_tipo_ruta;
         $ruta->nombre=$request->nombre;
         $ruta->save();
-        return redirect()->route('rutas.');
+        return redirect()->route('rutas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Ruta $ruta)
+    public function destroy(/*Ruta*/ $ruta)
     {
-        $ruta= Ruta::find($ruta->id);
+        $ruta= Ruta::find($ruta);
         $ruta->delete();
-        return redirect()->route('rutas.');
+        return redirect()->route('rutas.index');
     }
 }
