@@ -33,7 +33,7 @@ function initTemplate() {
     '                               <a class="nav-link active" aria-current="page" href="conocernos">Nosotros</a>'+
     '                       </li>'+
     '                       <li class="nav-item dropdown">'+
-    '                           <a class="nav-link active" href="rutas" aria-expanded="false">'+
+    '                           <a class="nav-link active" href="rutasyhorarios" aria-expanded="false">'+
     '                                   Rutas y horarios'+
     '                           </a>'+
     '                       </li>'+
@@ -41,6 +41,23 @@ function initTemplate() {
     '                               <a class="nav-link active" href="contactanos">Contactanos</a>'+
     '                       </li>'+
     '                   </ul>'+
+    '                       <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">'+
+    '                           <ul class="navbar-nav">'+
+    '                               <li class="nav-item dropdown">'+
+        '                                <button class="btn btn-succes dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">'+
+        '                                Vistas CRUD'+
+        '                                </button>'+
+    '                            <ul class="dropdown-menu dropdown-menu-success">'+
+    '                                <li><a class="dropdown-item" href="CuentaAdmin">Vehiculos</a></li>'+
+    '                                <li><a class="dropdown-item" href="clientes">Clientes</a></li>'+
+    '                                <li><a class="dropdown-item" href="empleados">Empleados</a></li>'+
+    '                                <li><a class="dropdown-item" href="rutas">Rutas</a></li>'+
+    '                                <li><a class="dropdown-item" href="rolUsuario">Rol Usuario</a></li>'+
+    '                                <li><a class="dropdown-item" href="paradas">Paradas</a></li>'+
+    '                            </ul>'+
+    '                            </li>'+
+    '                            </ul>'+
+    '                        </div>'+
     '                   <div>'+
     '                       <a class="btn btn-light" href="registro">Registrarse</a>'+
     '                       <a class="btn btn-primary" href="ingreso">Iniciar Sesion</a>'+
