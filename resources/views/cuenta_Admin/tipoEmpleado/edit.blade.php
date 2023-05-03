@@ -14,20 +14,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form class="form-control" id="formulario" method="post" action="{{ route('clientes.update',$cliente) }}">
+                <form class="form-control" id="formulario" method="post" action="{{ route('tipoEmpleado.update',$tipo_empleado) }}">
                     @method('PUT')
                     @csrf
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{$cliente->nombre}}">
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="{{$tipo_empleado->nombre}}">
                     </div>
                     <div class="mb-3">
-                        <label for="cedula" class="form-label">Cedula</label>
-                        <input type="number" class="form-control" id="cedula" name="cedula" value="{{$cliente->cedula}}">
-                    </div>
-                    <div class="mb-3">
-                        <label for="telefono" class="form-label">Telefono</label>
-                        <input type="number" class="form-control" id="telefono" name="telefono" value="{{$cliente->telefono}}">
+                        <label for="descripcion" class="form-label">Cedula</label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{$tipo_empleado->descripcion}}">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Editar</button>
