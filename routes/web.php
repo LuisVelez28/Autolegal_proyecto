@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\RolUsuarioController;
 use App\Http\Controllers\RutaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
@@ -32,7 +33,7 @@ Route::get('/contactanos', function () {
 Route::get('/conocernos', function () {
     return view('conocernos.conocernos');
 });
-Route::get('/rutas', function () {
+Route::get('/rutasyhorarios', function () {
     return view('rutas.rutas');
 });
 Route::get('/registro', function () {
@@ -49,3 +50,5 @@ Route::resource('/clientes',ClienteController::class);
 Route::resource('/empleados',EmpleadoController::class);
 
 Route::resource('/rutas',RutaController::class);
+
+Route::resource('/rolUsuario',RolUsuarioController::class);

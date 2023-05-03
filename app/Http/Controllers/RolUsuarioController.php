@@ -13,7 +13,7 @@ class RolUsuarioController extends Controller
     public function index()
     {
         $roles_usuario= Rol_usuario::all();
-        return view('roles_usuario.', compact('roles_usuario'));
+        return view('cuenta_Admin.rolUsuario.create', compact('roles_usuario'));
     }
 
     /**
@@ -33,7 +33,7 @@ class RolUsuarioController extends Controller
         $rol_usuario->nombre=$request->nombre;
         $rol_usuario->descripcion=$request->descripcion;
         $rol_usuario->save();
-        return redirect()->route('roles_usuario.');
+        return redirect()->route('rolUsuario.index');
     }
 
     /**
@@ -48,31 +48,31 @@ class RolUsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Rol_usuario $rol_usuario)
+    public function edit(/*Rol_usuario*/ $rol_usuario)
     {
-        $rol_usuario= Rol_usuario::find($rol_usuario->id);
-        return view('roles_usuario.', compact('rol_usuario'));
+        $rol_usuario= Rol_usuario::find($rol_usuario);
+        return view('cuenta_Admin.rolUsuario.edit', compact('rol_usuario'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rol_usuario $rol_usuario)
+    public function update(Request $request, /*Rol_usuario*/ $rol_usuario)
     {
-        $rol_usuario= Rol_usuario::find($rol_usuario->id);
+        $rol_usuario= Rol_usuario::find($rol_usuario);
         $rol_usuario->nombre=$request->nombre;
         $rol_usuario->descripcion=$request->descripcion;
         $rol_usuario->save();
-        return redirect()->route('roles_usuario.');
+        return redirect()->route('rolUsuario.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rol_usuario $rol_usuario)
+    public function destroy(/*Rol_usuario*/ $rol_usuario)
     {
-        $rol_usuario= Rol_usuario::find($rol_usuario->id);
+        $rol_usuario= Rol_usuario::find($rol_usuario);
         $rol_usuario->delete();
-        return redirect()->route('roles_usuario.');
+        return redirect()->route('rolUsuario.index');
     }
 }
