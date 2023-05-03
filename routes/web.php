@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TipoEmpleadoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ParadaController;
@@ -44,14 +45,16 @@ Route::get('/registro', function () {
 //     return view('cuenta_Admin.IngresoBus');
 // });
 
-Route::resource('/CuentaAdmin',VehiculoController::class);
+Route::resource('/CuentaAdmin', VehiculoController::class);
 
-Route::resource('/clientes',ClienteController::class);
+Route::resource('/clientes', ClienteController::class);
 
-Route::resource('/empleados',EmpleadoController::class);
+Route::resource('/empleados', EmpleadoController::class);
 
-Route::resource('/rutas',RutaController::class);
+Route::resource('/rutas', RutaController::class);
 
-Route::resource('/rolUsuario',RolUsuarioController::class);
+Route::resource('/rolUsuario', RolUsuarioController::class);
 
-Route::resource('/paradas',ParadaController::class);
+Route::resource('/paradas', ParadaController::class);
+
+Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
