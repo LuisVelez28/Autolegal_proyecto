@@ -13,7 +13,7 @@ class TipoRutaController extends Controller
     public function index()
     {
         $tipos_ruta= Tipo_ruta::all();
-        return view('tipo_rutas.', compact('tipos_ruta'));
+        return view('cuenta_Admin.tipoRuta.create', compact('tipos_ruta'));
     }
 
     /**
@@ -33,7 +33,7 @@ class TipoRutaController extends Controller
         $tipo_ruta->nombre=$request->nombre;
         $tipo_ruta->descripcion=$request->descripcion;
         $tipo_ruta->save();
-        return redirect()->route('tipo_rutas.');
+        return redirect()->route('tipoRuta.index');
     }
 
     /**
@@ -48,31 +48,31 @@ class TipoRutaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tipo_ruta $tipo_ruta)
+    public function edit(/*Tipo_ruta*/ $tipo_ruta)
     {
-        $tipo_ruta= Tipo_ruta::find($tipo_ruta->id);
-        return view('tipo_rutas.', compact('tipo_ruta'));
+        $tipo_ruta= Tipo_ruta::find($tipo_ruta);
+        return view('cuenta_Admin.tipoRuta.edit', compact('tipo_ruta'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tipo_ruta $tipo_ruta)
+    public function update(Request $request, /*Tipo_ruta*/ $tipo_ruta)
     {
-        $tipo_ruta= Tipo_ruta::find($tipo_ruta->id);
+        $tipo_ruta= Tipo_ruta::find($tipo_ruta);
         $tipo_ruta->nombre=$request->nombre;
         $tipo_ruta->descripcion=$request->descripcion;
         $tipo_ruta->save();
-        return redirect()->route('tipo_rutas.');
+        return redirect()->route('tipoRuta.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tipo_ruta $tipo_ruta)
+    public function destroy(/*Tipo_ruta*/ $tipo_ruta)
     {
-        $tipo_ruta= Tipo_ruta::find($tipo_ruta->id);
+        $tipo_ruta= Tipo_ruta::find($tipo_ruta);
         $tipo_ruta->delete();
-        return redirect()->route('tipo_rutas.');
+        return redirect()->route('tipoRuta.index');
     }
 }
