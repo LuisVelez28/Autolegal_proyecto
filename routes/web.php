@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\ParadaController;
 use App\Http\Controllers\RolUsuarioController;
 use App\Http\Controllers\RutaController;
 use Illuminate\Support\Facades\Route;
@@ -52,3 +53,5 @@ Route::resource('/empleados',EmpleadoController::class);
 Route::resource('/rutas',RutaController::class);
 
 Route::resource('/rolUsuario',RolUsuarioController::class);
+
+Route::resource('/paradas',ParadaController::class);

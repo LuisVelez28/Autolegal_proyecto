@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parada;
+use App\Models\Ruta;
 use Illuminate\Http\Request;
 
 class ParadaController extends Controller
@@ -13,7 +14,8 @@ class ParadaController extends Controller
     public function index()
     {
         $paradas=Parada::all();
-        return view('paradas.',compact('paradas'));
+        $rutas= Ruta::all();
+        return view('cuenta_Admin.parada.create',compact('paradas','rutas'));
     }
 
     /**
@@ -34,7 +36,7 @@ class ParadaController extends Controller
         $parada->nombre=$request->nombre;
         $parada->posicion=$request->posicion;
         $parada->save();
-        return redirect()->route('paradas.');
+        return redirect()->route('paradas.index');
 
     }
 
@@ -50,31 +52,34 @@ class ParadaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Parada $parada)
+    public function edit(/*Parada*/ $parada)
     {
-        $parada= Parada::find($parada->id);
-        return view('paradas.',compact('parada'));
+        $parada= Parada::find($parada);
+        $id_ruta=strval(Ruta::find($parada->id_ruta)->id);
+        $rutas= Ruta::all();
+        return view('cuenta_Admin.parada.edit',compact('parada','rutas','id_ruta'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Parada $parada)
+    public function update(Request $request, /*Parada*/ $parada)
     {
-        $parada= Parada::find($parada->id);
+        $parada= Parada::find($parada);
         $parada->id_ruta=$request->id_ruta;
         $parada->nombre=$request->nombre;
         $parada->posicion=$request->posicion;
         $parada->save();
-        return redirect()->route('paradas.');
+        return redirect()->route('paradas.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Parada $parada)
+    public function destroy(/*Parada*/ $parada)
     {
+        $parada= Parada::find($parada);
         $parada->delete();
-        return redirect()->route('paradas.');
+        return redirect()->route('paradas.index');
     }
 }
