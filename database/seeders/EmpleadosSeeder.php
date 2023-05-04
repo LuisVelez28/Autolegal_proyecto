@@ -27,6 +27,13 @@ class EmpleadosSeeder extends Seeder
         $empleado->id_tipo_empleado = 2;
         $empleado->save();
 
+        $empleado = new Empleado();
+        $empleado->nombre = "Miguel Angel";
+        $empleado->cedula = "0000000003";
+        $empleado->telefono = "88888888888";
+        $empleado->id_tipo_empleado = 2;
+        $empleado->save();
+
 
     }
 }

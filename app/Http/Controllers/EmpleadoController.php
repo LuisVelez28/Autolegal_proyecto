@@ -55,7 +55,7 @@ class EmpleadoController extends Controller
     public function edit(/*Empleado*/ $empleado)
     {
         $empleado= Empleado::find($empleado);
-        $tipo = strval(Tipo_empleado::find($empleado->id_tipo_empleado)->id);
+        $tipo = $empleado->id_tipo_empleado;
         $tipos_empleado = Tipo_empleado::all();
         return view('cuenta_Admin.empleado.edit',compact('empleado','tipos_empleado','tipo'));
     }

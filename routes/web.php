@@ -10,7 +10,7 @@ use App\Http\Controllers\TipoRutaController;
 use App\Http\Controllers\TipoVehiculoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
-
+use App\Http\Controllers\ViajeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,3 +64,7 @@ Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
 Route::resource('/tipoRuta',TipoRutaController::class);
 
 Route::resource('/tipoVehiculo', TipoVehiculoController::class);
+
+
+
+Route::resource('/viajes', ViajeController::class);

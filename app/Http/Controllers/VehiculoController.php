@@ -61,7 +61,7 @@ class VehiculoController extends Controller
         // dd($vehiculo);
         $vehiculo= Vehiculo::find($vehiculo);
         //dd($vehiculo);
-        $tipo= strval(Tipo_vehiculo::find($vehiculo->id_tipo_vehiculo)->id);
+        $tipo= $vehiculo->id_tipo_vehiculo;
         $tipos_vehiculo= Tipo_vehiculo::all();
         //dd($tipo);
         return view('cuenta_Admin.editbus',compact('vehiculo','tipos_vehiculo','tipo'));

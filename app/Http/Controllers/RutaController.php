@@ -53,7 +53,7 @@ class RutaController extends Controller
     public function edit(/*Ruta*/ $ruta)
     {
         $ruta= Ruta::find($ruta);
-        $tipo= strval(Tipo_ruta::find($ruta->id_tipo_ruta)->id);
+        $tipo= $ruta->id_tipo_ruta;
         $tipos_ruta= Tipo_ruta::all();
         return view('cuenta_Admin.ruta.edit',compact('ruta','tipos_ruta','tipo'));
     }

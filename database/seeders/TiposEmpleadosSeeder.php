@@ -14,13 +14,13 @@ class TiposEmpleadosSeeder extends Seeder
     public function run(): void
     {
         $tipo_empleado= new Tipo_empleado();
-        $tipo_empleado->nombre = "tipo-empleado-000";
-        $tipo_empleado->descripcion = "descripcion tipo-empleado-000";
+        $tipo_empleado->nombre = "Administrador";
+        $tipo_empleado->descripcion = "Creacion, visualizacion, actualizacion y borrado en todas las tablas que no sean automaticas";
         $tipo_empleado->save();
 
         $tipo_empleado= new Tipo_empleado();
-        $tipo_empleado->nombre = "tipo-empleado-001";
-        $tipo_empleado->descripcion = "descripcion tipo-empleado-001";
+        $tipo_empleado->nombre = "Conductor";
+        $tipo_empleado->descripcion = "Empleado con rol de conductor";
         $tipo_empleado->save();
 
     }
