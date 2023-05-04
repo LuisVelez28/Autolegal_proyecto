@@ -7,6 +7,7 @@ use App\Http\Controllers\ParadaController;
 use App\Http\Controllers\RolUsuarioController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\TipoRutaController;
+use App\Http\Controllers\TipoVehiculoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
 
@@ -61,3 +62,5 @@ Route::resource('/paradas',ParadaController::class);
 Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
 
 Route::resource('/tipoRuta',TipoRutaController::class);
+
+Route::resource('/tipoVehiculo', TipoVehiculoController::class);

@@ -13,7 +13,7 @@ class TipoVehiculoController extends Controller
     public function index()
     {
         $tipos_vehiculo = Tipo_vehiculo::all();
-        return view('tipo_vehiculo.', compact('tipos_vehiculo'));
+        return view('cuenta_Admin.tipoVehiculo.create', compact('tipos_vehiculo'));
     }
 
     /**
@@ -33,7 +33,7 @@ class TipoVehiculoController extends Controller
         $tipo_vehiculo->nombre=$request->nombre;
         $tipo_vehiculo->descripcion=$request->descripcion;
         $tipo_vehiculo->save();
-        return redirect()->route('tipo_vehiculo.');
+        return redirect()->route('tipoVehiculo.index');
     }
 
     /**
@@ -48,31 +48,31 @@ class TipoVehiculoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tipo_vehiculo $tipo_vehiculo)
+    public function edit(/*Tipo_vehiculo*/ $tipo_vehiculo)
     {
-        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo->id);
-        return view('tipo_vehiculo.', compact('tipo_vehiculo'));
+        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo);
+        return view('cuenta_Admin.tipoVehiculo.edit', compact('tipo_vehiculo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tipo_vehiculo $tipo_vehiculo)
+    public function update(Request $request, /*Tipo_vehiculo*/ $tipo_vehiculo)
     {
-        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo->id);
+        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo);
         $tipo_vehiculo->nombre=$request->nombre;
         $tipo_vehiculo->descripcion=$request->descripcion;
         $tipo_vehiculo->save();
-        return redirect()->route('tipo_vehiculo.');
+        return redirect()->route('tipoVehiculo.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tipo_vehiculo $tipo_vehiculo)
+    public function destroy(/*Tipo_vehiculo*/ $tipo_vehiculo)
     {
-        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo->id);
+        $tipo_vehiculo= Tipo_vehiculo::find($tipo_vehiculo);
         $tipo_vehiculo->delete();
-        return redirect()->route('tipo_vehiculo.');
+        return redirect()->route('tipoVehiculo.index');
     }
 }
