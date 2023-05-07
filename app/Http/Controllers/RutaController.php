@@ -35,7 +35,7 @@ class RutaController extends Controller
         $ruta->id_tipo_ruta=$request->id_tipo_ruta;
         $ruta->nombre=$request->nombre;
         $ruta->save();
-        return redirect()->route('rutas.index');
+        return redirect()->route('rutasyhorarios.index');
     }
 
     /**
@@ -67,7 +67,7 @@ class RutaController extends Controller
         $ruta->id_tipo_ruta=$request->id_tipo_ruta;
         $ruta->nombre=$request->nombre;
         $ruta->save();
-        return redirect()->route('rutas.index');
+        return redirect()->route('rutasyhorarios.index');
     }
 
     /**
@@ -77,6 +77,6 @@ class RutaController extends Controller
     {
         $ruta= Ruta::find($ruta);
         $ruta->delete();
-        return redirect()->route('rutas.index');
+        return redirect()->route('rutasyhorarios.index');
     }
 }

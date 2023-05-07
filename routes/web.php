@@ -26,23 +26,24 @@ use App\Http\Controllers\ViajeController;
 // traer la vista de la pagina principal que esta en la carpeta views/main/index.blade.php
 
 Route::get('/', function () {
-    return view('main.index');
+    return view('index');
+});
+Route::get('/registro', function () {
+    return view('registro.registro');
 });
 Route::get('/ingreso', function () {
     return view('ingreso.ingreso');
 });
 Route::get('/contactanos', function () {
-    return view('contactanos.contactanos');
+    return view('contactanos');
 });
 Route::get('/conocernos', function () {
-    return view('conocernos.conocernos');
+    return view('conocernos');
 });
 Route::get('/rutasyhorarios', function () {
-    return view('rutas.rutas');
+    return view('rutas');
 });
-Route::get('/registro', function () {
-    return view('iniciarsesion.registro');
-});
+
 // Route::get('/CuentaAdmin', function () {
 //     return view('cuenta_Admin.IngresoBus');
 // });
@@ -53,7 +54,7 @@ Route::resource('/clientes', ClienteController::class);
 
 Route::resource('/empleados', EmpleadoController::class);
 
-Route::resource('/rutas', RutaController::class);
+Route::resource('/rutasyhorarios', RutaController::class);
 
 Route::resource('/rolUsuario', RolUsuarioController::class);
 
@@ -64,7 +65,5 @@ Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
 Route::resource('/tipoRuta',TipoRutaController::class);
 
 Route::resource('/tipoVehiculo', TipoVehiculoController::class);
-
-
 
 Route::resource('/viajes', ViajeController::class);
