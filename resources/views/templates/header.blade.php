@@ -13,7 +13,7 @@
                             <a class="nav-link active" aria-current="page" href="conocernos">Nosotros</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link active" href="rutasyhorario" aria-expanded="false">
+                            <a class="nav-link active" href="rutas" aria-expanded="false">
                                 Rutas Urbanas
                             </a>
                         </li>

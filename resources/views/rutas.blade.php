@@ -23,4 +23,11 @@
         <br>
         <button type="submit" class="btn btn-primary">Buscar</button>
     </form>
+    <br>
+    <br>
+
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css">
+    <div id="map" style="width: 400px; height: 300px;"></div>
+    <script src="{{asset('js/functions/rutes.js')}}"></script>
 @endsection

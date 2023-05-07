@@ -40,7 +40,7 @@ Route::get('/contactanos', function () {
 Route::get('/conocernos', function () {
     return view('conocernos');
 });
-Route::get('/rutasyhorarios', function () {
+Route::get('/rutas', function () {
     return view('rutas');
 });
 
