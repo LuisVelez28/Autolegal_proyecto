@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_ruta')->constrained('rutas');
             $table->string('nombre');
-            $table->string('posicion');
+            $table->string('ubicacion');
+            $table->integer('posicion');
             $table->timestamps();
         });
     }

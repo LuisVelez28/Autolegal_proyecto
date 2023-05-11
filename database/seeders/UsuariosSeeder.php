@@ -21,19 +21,31 @@ class UsuariosSeeder extends Seeder
         $usuario->password= "admin";
         $usuario->email= "admin@admin.com";
         //esta campo es generado automaticamente
-        $usuario->estado= 1;
+        //$usuario->estado= 1;
         $usuario->id_rol_usuario= 1;
         $usuario->save();
 
         $usuario=new Usuario();
         //$usuario->id_cliente=;
-        $usuario->id_empleado= 1;
+        $usuario->id_empleado= 2;
         $usuario->username= "emp";
         //como se protege el de password
         $usuario->password= "emp";
         $usuario->email= "emp@emp.com";
         //esta campo es generado automaticamente
-        $usuario->estado= 1;
+        //$usuario->estado= 1;
+        $usuario->id_rol_usuario= 2;
+        $usuario->save();
+
+        $usuario=new Usuario();
+        //$usuario->id_cliente=;
+        $usuario->id_empleado= 3;
+        $usuario->username= "emp";
+        //como se protege el de password
+        $usuario->password= "emp";
+        $usuario->email= "emp@emp.com";
+        //esta campo es generado automaticamente
+        $usuario->estado= 2;
         $usuario->id_rol_usuario= 2;
         $usuario->save();
 

@@ -22,10 +22,13 @@
                         <input type="text" class="form-control" id="nombre" name="nombre" value="{{$parada->nombre}}">
                     </div>
                     <div class="mb-3">
-                        <label for="posicion" class="form-label">Posicion</label>
-                        <input type="text" class="form-control" id="posicion" name="posicion" value="{{$parada->posicion}}">
+                        <label for="ubicacion" class="form-label">Ubicacion</label>
+                        <input type="text" class="form-control" id="ubicacion" name="ubicacion" value="{{$parada->posicion}}" placeholder="Latitud, Longitud">
                     </div>
-
+                    <div class="mb-3">
+                        <label for="posicion" class="form-label">Posicion</label>
+                        <input type="text" class="form-control" id="posicion" name="posicion">
+                    </div>
                     <div class="mb-3">
                         <label for="id_ruta" class="form-label">Tipo</label>
                         <select class="form-control" name="id_ruta" id="id_ruta">

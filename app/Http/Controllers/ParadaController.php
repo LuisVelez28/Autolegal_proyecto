@@ -34,6 +34,7 @@ class ParadaController extends Controller
         $parada= new Parada();
         $parada->id_ruta=$request->id_ruta;
         $parada->nombre=$request->nombre;
+        $parada->ubicacion=$request->ubicacion;
         $parada->posicion=$request->posicion;
         $parada->save();
         return redirect()->route('paradas.index');
@@ -68,6 +69,7 @@ class ParadaController extends Controller
         $parada= Parada::find($parada);
         $parada->id_ruta=$request->id_ruta;
         $parada->nombre=$request->nombre;
+        $parada->ubicacion=$request->ubicacion;
         $parada->posicion=$request->posicion;
         $parada->save();
         return redirect()->route('paradas.index');

@@ -14,13 +14,13 @@ class TiposVehiculosSeeder extends Seeder
     public function run(): void
     {
         $tipo_vehiculo= new Tipo_vehiculo();
-        $tipo_vehiculo->nombre="tipo-000";
-        $tipo_vehiculo->descripcion="descripcion tipo vehiculo 000";
+        $tipo_vehiculo->nombre="Buseta";
+        $tipo_vehiculo->descripcion="Descripcion vejiculo Buseta";
         $tipo_vehiculo->save();
 
         $tipo_vehiculo= new Tipo_vehiculo();
-        $tipo_vehiculo->nombre="tipo-001";
-        $tipo_vehiculo->descripcion="descripcion tipo vehiculo 001";
+        $tipo_vehiculo->nombre="Bus";
+        $tipo_vehiculo->descripcion="Descripcion vehiculo Bus";
         $tipo_vehiculo->save();
 
     }

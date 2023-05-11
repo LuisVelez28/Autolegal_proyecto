@@ -34,6 +34,13 @@
                         <input type="text" class="form-control" id="nombre" name="nombre">
                     </div>
                     <div class="mb-3">
+                        <label for="ubicacion" class="form-label">Ubicacion</label>
+                        <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Latitud, Longitud">
+                    </div>
+                    <div class="mb-3">
+                        <label for="posicion" class="form-label">Posicion</label>
+                        <input type="text" class="form-control" id="posicion" name="posicion">
+                    </div>div class="mb-3">
                         <label for="posicion" class="form-label">Posicion</label>
                         <input type="text" class="form-control" id="posicion" name="posicion" placeholder="Latitud, Longitud">
                     </div>
@@ -55,6 +62,7 @@
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
+                    <th scope="col">Ubicacion</th>
                     <th scope="col">Posicion</th>
                     <th scope="col">Tipo</th>
                     <th scope="col">Acciones</th>
@@ -67,6 +75,7 @@
                     @endphp
                     <tr>
                         <td>{{ $parada->nombre }}</td>
+                        <td>{{ $parada->ubicacion}}</td>
                         <td>{{ $parada->posicion }}</td>
                         <td>{{ $tipo }}</td>
                         <td>
