@@ -40,10 +40,10 @@ class UsuariosSeeder extends Seeder
         $usuario=new Usuario();
         //$usuario->id_cliente=;
         $usuario->id_empleado= 3;
-        $usuario->username= "emp";
+        $usuario->username= "emp2";
         //como se protege el de password
-        $usuario->password= "emp";
-        $usuario->email= "emp@emp.com";
+        $usuario->password= "emp2";
+        $usuario->email= "emp2@emp.com";
         //esta campo es generado automaticamente
         $usuario->estado= 2;
         $usuario->id_rol_usuario= 2;

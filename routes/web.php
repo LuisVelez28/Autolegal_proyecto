@@ -35,9 +35,11 @@ Route::get('/registro', function () {
 Route::get('/ingreso', function () {
     return view('ingreso.ingreso');
 });
-Route::get('/contactanos', function () {
+/*
+ * Route::get('/contactanos', function () {
     return view('contactanos');
-});
+ });
+ */
 Route::get('/conocernos', function () {
     return view('conocernos');
 });
