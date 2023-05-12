@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('pqrs', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre_cliente');
+            $table->string('email');
+            $table->string('mensaje');
+            //implementar luego
+            //$table->string('estado');
             $table->timestamps();
         });
     }

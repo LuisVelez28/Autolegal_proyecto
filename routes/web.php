@@ -4,6 +4,7 @@ use App\Http\Controllers\TipoEmpleadoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ParadaController;
+use App\Http\Controllers\PqrsController;
 use App\Http\Controllers\RolUsuarioController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\TipoRutaController;
@@ -67,3 +68,5 @@ Route::resource('/tipoRuta',TipoRutaController::class);
 Route::resource('/tipoVehiculo', TipoVehiculoController::class);
 
 Route::resource('/viajes', ViajeController::class);
+
+Route::resource('/contactanos', PqrsController::class);
