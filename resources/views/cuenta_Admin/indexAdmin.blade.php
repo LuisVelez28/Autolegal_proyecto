@@ -20,7 +20,7 @@
         </button>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" id="mi-enlace" href="">Cerrar Sesión</a>
+                <a class="nav-link px-3" href="#">Cerrar Sesión</a>
             </div>
         </div>
     </header>
@@ -48,7 +48,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="bus">
+                            <a class="nav-link" href="buses">
                                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
                                 Buses
                             </a>
@@ -132,67 +132,32 @@
                     </ul>
                 </div>
             </nav>
+
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Clientes</h1>
-                </div>
-                <br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <form class="form-control" id="formulario" method="post"
-                                action="{{ route('clientes.store') }}">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="nombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="nombre" name="nombre">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="cedula" class="form-label">Cedula</label>
-                                    <input type="number" class="form-control" id="cedula" name="cedula">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="telefono" class="form-label">Telefono</label>
-                                    <input type="cedula" class="form-control" id="telefono" name="telefono">
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Crear</button>
-                            </form>
+                    <h1 class="h2">Pagina de Inicio</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
                         </div>
                     </div>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Cedula</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($clientes as $cliente)
-                                <tr>
-                                    <td>{{ $cliente->nombre }}</td>
-                                    <td>{{ $cliente->cedula }}</td>
-                                    <td>{{ $cliente->telefono }}</td>
-                                    <td>
-                                        <a href="{{ route('clientes.edit', $cliente) }}"
-                                            class="btn btn-warning">Editar</a>
-                                        <form action="{{ route('clientes.destroy', $cliente) }}" method="post"
-                                            class="d-inline">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
                 </div>
-        </div>
+
+                <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>        
+
+
+    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"
+        integrity="sha384-gdQErvCNWvHQZj6XZM0dNsAoY4v+j5P1XDpNkcM3HJG1Yx04ecqIHk7+4VBOCHOG" crossorigin="anonymous">
+    </script>
+    <script src="dashboard.js"></script>
+
 </body>
-<script>
-    document.getElementById("mi-enlace").href = "";
-</script>
+
 </html>

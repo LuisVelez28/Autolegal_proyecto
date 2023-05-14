@@ -36,7 +36,7 @@ Route::get('/ingreso', function () {
     return view('ingreso.ingreso');
 });
 /*
- * Route::get('/contactanos', function () {
+ Route::get('/contactanos', function () {
     return view('contactanos');
  });
  */
@@ -47,11 +47,9 @@ Route::get('/rutas', function () {
     return view('rutas');
 });
 
-// Route::get('/CuentaAdmin', function () {
-//     return view('cuenta_Admin.IngresoBus');
-// });
-
-Route::resource('/CuentaAdmin', VehiculoController::class);
+Route::get('/CuentaAdmin', function () {
+    return view('cuenta_admin.indexAdmin');
+});
 
 Route::resource('/clientes', ClienteController::class);
 
@@ -72,3 +70,5 @@ Route::resource('/tipoVehiculo', TipoVehiculoController::class);
 Route::resource('/viajes', ViajeController::class);
 
 Route::resource('/contactanos', PqrsController::class);
+
+Route::resource('/vehiculos', VehiculoController::class);

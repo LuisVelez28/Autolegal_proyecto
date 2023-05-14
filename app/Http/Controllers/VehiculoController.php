@@ -16,7 +16,7 @@ class VehiculoController extends Controller
         $vehiculos= Vehiculo::all();
         $tipos_vehiculo= Tipo_vehiculo::all();
         // dd($vehiculos);
-        return view('cuenta_Admin.IngresoBus',compact('vehiculos','tipos_vehiculo'));
+        return view('cuenta_Admin.vehiculo.create',compact('vehiculos','tipos_vehiculo'));
     }
 
     /**
@@ -41,7 +41,7 @@ class VehiculoController extends Controller
         //$vehiculo->estado=$request->estado;
         $vehiculo->id_tipo_vehiculo=$request->id_tipo_vehiculo;
         $vehiculo->save();
-        return redirect()->route('CuentaAdmin.index');
+        return redirect()->route('vehiculos.index');
     }
 
     /**

@@ -9,6 +9,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/styles_validation.css')}}">
 
 </head>
 
@@ -55,6 +56,14 @@
                                                 <label class="form-label" for="contrasena">Contraseña</label>
                                                 <input type="password" id="contrasena" name="contrasena"
                                                     class="form-control" />
+                                                <div class="valid-checks">
+                                                    <ul class="checklist">
+                                                        <li>Letra en minuscula</li>
+                                                        <li>Letra en mayuscula</li>
+                                                        <li>Numero</li>
+                                                        <li>Por lo menos 8 caracteres</li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -70,8 +79,7 @@
                                         <div class="form-check d-flex justify-content-center mb-5">
                                             <input class="form-check-input me-2" type="checkbox" value=""
                                                 id="form2Example3c" />
-                                            <label class="form-check-label" for="form2Example3">Acepto los <a
-                                                    href="#!">Terminos y condiciones</a>
+                                            <label class="form-check-label" for="form2Example3">Acepto los <a onclick="abrirVentanaEmergente()">terminos y condiciones</a>
                                             </label>
                                         </div>
 
@@ -104,6 +112,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+    <script src='{{asset('js/functions/Script_Validation.js')}}'></script>
+    <script src='{{asset('js/functions/Script.js')}}'></script>
 </body>
 
 </html>
