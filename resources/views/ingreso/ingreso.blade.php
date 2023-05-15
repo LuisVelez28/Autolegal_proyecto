@@ -31,7 +31,7 @@
 
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Inicio de Sesion</p>
 
-                                    <form class="mx-1 mx-md-4" method="post" action="">
+                                    <form class="mx-1 mx-md-4" method="post" action="{{route('iniciar-sesion')}}">
                                         @csrf
 
                                         <div class="d-flex flex-row align-items-center mb-4">

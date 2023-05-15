@@ -3,6 +3,7 @@
 use App\Http\Controllers\TipoEmpleadoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ParadaController;
 use App\Http\Controllers\PqrsController;
 use App\Http\Controllers\RolUsuarioController;
@@ -35,6 +36,11 @@ Route::get('/registro', function () {
 Route::get('/ingreso', function () {
     return view('ingreso.ingreso');
 });
+
+Route::post('/validar-registro', [LoginController::class, 'registro'])->name('validar-registro');
+Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 /*
  Route::get('/contactanos', function () {
     return view('contactanos');

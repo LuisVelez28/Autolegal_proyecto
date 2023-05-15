@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -34,8 +35,8 @@ class UsuarioController extends Controller
         $usuario->id_empleado=$request->id_empleado;
         $usuario->username=$request->username;
         //como se protege el de password
-        $usuario->password=$request->password;
         $usuario->email=$request->email;
+        $usuario->password=Hash::make($request->password);
         //esta campo es generado automaticamente
         $usuario->estado=$request->estado;
         $usuario->id_rol_usuario=$request->id_rol_usuario;
@@ -70,8 +71,8 @@ class UsuarioController extends Controller
         $usuario->id_persona=$request->id_persona;
         $usuario->username=$request->username;
         //como se protege el de password
-        $usuario->password=$request->password;
         $usuario->email=$request->email;
+        $usuario->password=Hash::make($request->password);
         //esta campo es generado automaticamente
         //$usuario->estado=$request->estado;
         $usuario->id_rol_usuario=$request->id_rol_usuario;
