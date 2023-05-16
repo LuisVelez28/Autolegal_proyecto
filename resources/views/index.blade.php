@@ -9,8 +9,8 @@
         <div id="slider">
             <ul>
                 <li>
-                    <a href="https://www.facebook.com/search/top?q=autolegal%20s.a">
-                        <img src="https://scontent.fclo1-3.fna.fbcdn.net/v/t39.30808-6/250309291_752229382371521_4458604822691400276_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeHR6X1qWNc5PPxO6O4CqPxAcYfHiChR4Htxh8eIKFHge6FXEQoska7o1HEAc96N63GaOYej3wdTxfTxrlcfb07V&_nc_ohc=MFua4guJ1zQAX_9I3Ju&_nc_ht=scontent.fclo1-3.fna&oh=00_AfCi4HBqeOagJM5BsVkQVkyIC8Iqx6o7Ksa4fs97GBY1mw&oe=64557189"
+                    <a href="https://www.facebook.com/profile.php?id=100065064096941">
+                        <img src="https://scontent.fclo1-3.fna.fbcdn.net/v/t39.30808-6/250295169_752229415704851_4913764717229308442_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeHHsS_q8jHVmxRytri__zWnlaKcAt73GMCVopwC3vcYwNT8fpQubRuLjFEXA5CFiCjhKtM1AIY5rvJ3ycwh8p-f&_nc_ohc=j56QJ-uELdcAX-57RVV&_nc_ht=scontent.fclo1-3.fna&oh=00_AfAQmQYDdkiBxf0vH2rhh5rQKAJSvd1gFGV6lKqeSeFTAg&oe=6467E730"
                             alt="">
                     </a>
                 </li>
@@ -20,7 +20,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="https://www.bcnoticias.com.co/piden-mejorar-el-transporte-publico-hacia-la-ciudadela-del-norte/">
                         <img
                             src="https://i0.wp.com/imagenesbc.com/wp-content/uploads/2020/08/WhatsApp-Image-2020-08-25-at-6_opt.jpg?resize=1140%2C641&ssl=1">
                     </a>
