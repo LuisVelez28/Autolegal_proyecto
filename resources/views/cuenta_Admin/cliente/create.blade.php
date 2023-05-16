@@ -30,7 +30,7 @@
                 <div class="position-sticky pt-3 sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="CuentaUsuario">
+                            <a class="nav-link active" aria-current="page" href="CuentaAdmin">
                                 <span data-feather="home" class="align-text-bottom"></span>
                                 Dashboard
                             </a>
@@ -48,7 +48,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="bus">
+                            <a class="nav-link" href="vehiculos">
                                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
                                 Buses
                             </a>
