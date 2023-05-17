@@ -159,6 +159,14 @@
                                     <label for="capacidad" class="form-label">Capacidad</label>
                                     <input type="integer" class="form-control" id="capacidad" name="capacidad">
                                 </div>
+                                <div class="mb-3">
+                                    <label for="tipo" class="form-label">Tipo</label>
+                                    <select class="form-control" name="id_tipo_vehiculo" id="tipo_vehiculo">
+                                        @foreach ($tipos_vehiculo as $tipo_vehiculo)
+                                            <option value="{{ $tipo_vehiculo->id }}">{{ $tipo_vehiculo->nombre }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <button type="submit" class="btn btn-primary">Crear</button>
                             </form>
                         </div>
