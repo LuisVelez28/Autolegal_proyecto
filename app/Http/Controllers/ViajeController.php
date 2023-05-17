@@ -16,10 +16,10 @@ class ViajeController extends Controller
      */
     public function index(request $request)
     {
-        $fecha_salida=$request->get('fecha_salida');
+        $Consulta=$request->get('Consulta');
         $viajes = DB::table('viaje')
-                    ->select('id','ruta','empleado','vehiculo','fecha_salida','fecha_llegada','viaje.cupos_disponibles','viaje.costo')
-                    ->where('viaje.fecha_salida','LIKE','%'.$fecha_salida.'%' );
+                    ->select('viaje.id','ruta.nombre as ruta','empleado.nombre as conductor','vehiculo.placa as vehiculo','viaje.fecha_salida','viaje.fecha_llegada','viaje.cupos_disponibles','viaje.costo')
+                    ->where('ruta.nombre','LIKE','%'.$Consulta.'%' );
         $rutas = Ruta::all();
         $empleados = Empleado::all();
         $conductores = $empleados->filter(function ($empleado) {
