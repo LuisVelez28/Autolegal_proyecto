@@ -56,7 +56,7 @@ Route::get('/rutas', function () {
 
 Route::get('/CuentaAdmin', function () {
     $vehiculos= Vehiculo::all();
-    return view('cuenta_admin.indexAdmin', compact('vehiculos'));
+    return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
 });
 
 Route::resource('/clientes', ClienteController::class);

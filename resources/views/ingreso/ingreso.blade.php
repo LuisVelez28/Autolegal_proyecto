@@ -39,7 +39,7 @@
                                             <div class="form-outline flex-fill mb-0">
 
                                                 <label class="form-label" for="email">Email</label>
-                                                <input type="email" id="email" class="form-control" />
+                                                <input type="email" name="email" id="email" class="form-control" />
                                             </div>
                                         </div>
 
@@ -48,7 +48,7 @@
                                             <div class="form-outline flex-fill mb-0">
 
                                                 <label class="form-label" for="contrasena">Contraseña</label>
-                                                <input type="password" id="contrasena" class="form-control" />
+                                                <input type="password" name="password" id="contrasena" class="form-control" />
                                             </div>
                                         </div>
 
@@ -60,10 +60,10 @@
                                             </label>
                                         </div>
 
-                                        {{-- <div class="d-flex flex-row justify-content-center mb-4">
+                                        <div class="d-flex flex-row justify-content-center mb-4">
                                             <p>No estas registrad@? <a href="{{ route('registro') }}">Registrarse</a>
                                             </p>
-                                        </div> --}}
+                                        </div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button type="submit" class="btn btn-primary btn-lg">Iniciar
                                                 Sesion</button>

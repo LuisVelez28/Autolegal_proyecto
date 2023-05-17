@@ -91,6 +91,6 @@ class VehiculoController extends Controller
     {
         $vehiculo= Vehiculo::find($vehiculo);
         $vehiculo->delete();
-        return redirect()->route('CuentaAdmin.index');
+        return redirect()->route('vehiculos.index');
     }
 }

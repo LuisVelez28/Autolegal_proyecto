@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UsuarioController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $usuarios= Usuario::all();
+        $usuarios= User::all();
         return view('usuarios.', compact('usuarios'));
     }
 
@@ -30,7 +30,7 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario=new Usuario();
+        $usuario=new User();
         $usuario->id_cliente=$request->id_cliente;
         $usuario->id_empleado=$request->id_empleado;
         $usuario->username=$request->username;
@@ -47,27 +47,27 @@ class UsuarioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Usuario $usuario)
+    public function show(User $usuario)
     {
-        $usuario= Usuario::find($usuario->id);
+        $usuario= User::find($usuario->id);
         return view('usuarios.', compact('usuario'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuario $usuario)
+    public function edit(User $usuario)
     {
-        $usuario= Usuario::find($usuario->id);
+        $usuario= User::find($usuario->id);
         return view('usuarios.', compact('usuario'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, User $usuario)
     {
-        $usuario= Usuario::find($usuario->id);
+        $usuario= User::find($usuario->id);
         $usuario->id_persona=$request->id_persona;
         $usuario->username=$request->username;
         //como se protege el de password
@@ -83,9 +83,9 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(User $usuario)
     {
-        $usuario= Usuario::find($usuario->id);
+        $usuario= User::find($usuario->id);
         $usuario->delete();
         return redirect()->route('usuarios.');
     }
