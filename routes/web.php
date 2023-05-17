@@ -59,6 +59,10 @@ Route::get('/CuentaAdmin', function () {
     return view('cuenta_admin.indexAdmin', compact('vehiculos'));
 });
 
+Route::get('/CuentaUsuario', function () {
+    return view('indexUsuario');
+});
+
 Route::resource('/clientes', ClienteController::class);
 
 Route::resource('/empleados', EmpleadoController::class);
