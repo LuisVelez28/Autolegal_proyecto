@@ -83,10 +83,10 @@
                                             </label>
                                         </div>
 
-                                        {{-- <div class="d-flex flex-row justify-content-center mb-4">
-                                            <p>Ya estas registrad@? <a href="{{ route('inicio-sesion') }}">Inicia
+                                        <div class="d-flex flex-row justify-content-center mb-4">
+                                            <p>Ya estas registrad@? <a href="{{ route('ingreso') }}">Inicia
                                                     Sesion</a></p>
-                                        </div> --}}
+                                        </div>
 
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>

@@ -31,12 +31,9 @@ use App\Models\Vehiculo;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/registro', function () {
-    return view('registro.registro');
-});
-Route::get('/ingreso', function () {
-    return view('ingreso.ingreso');
-});
+Route::view('/registro','registro.registro')->name('registro');
+
+Route::view('/ingreso','ingreso.ingreso')->name('ingreso');
 
 Route::post('/validar-registro', [LoginController::class, 'registro'])->name('validar-registro');
 Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
@@ -57,7 +54,7 @@ Route::get('/rutas', function () {
 Route::get('/CuentaAdmin', function () {
     $vehiculos= Vehiculo::all();
     return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
-});
+})->middleware(['auth','Admin'])->name('CuentaAdmin');
 
 Route::resource('/clientes', ClienteController::class);
 

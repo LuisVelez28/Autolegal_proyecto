@@ -13,7 +13,7 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request){
         /*use a dd() to show email and password of request*/
-        
+
 
         $credentials= $request->validate([
             'email' => ['required','email'],
@@ -21,10 +21,11 @@ class LoginController extends Controller
         ]);
 
         $credentials=$request->only('email', 'password');
-        
+
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('cuenta_Admin.indexAdmin');
+            //dd($request);
+            return redirect()->intended('CuentaAdmin');
         }
 
         return back()->withErrors([
