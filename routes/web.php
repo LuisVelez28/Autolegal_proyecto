@@ -56,6 +56,10 @@ Route::get('/CuentaAdmin', function () {
     return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
 })->middleware(['auth','Admin'])->name('CuentaAdmin');
 
+Route::get('/CuentaUsuario', function () {
+    return view('indexUsuario');
+});
+
 Route::resource('/clientes', ClienteController::class);
 
 Route::resource('/empleados', EmpleadoController::class);

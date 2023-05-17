@@ -7,22 +7,26 @@ use App\Models\Ruta;
 use App\Models\Vehiculo;
 use App\Models\Viaje;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ViajeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(request $request)
     {
-        $viajes = Viaje::all();
+        $Consulta=$request->get('Consulta');
+        $viajes = DB::table('viaje')
+                    ->select('viaje.id','ruta.nombre as ruta','empleado.nombre as conductor','vehiculo.placa as vehiculo','viaje.fecha_salida','viaje.fecha_llegada','viaje.cupos_disponibles','viaje.costo')
+                    ->where('ruta.nombre','LIKE','%'.$Consulta.'%' );
         $rutas = Ruta::all();
         $empleados = Empleado::all();
         $conductores = $empleados->filter(function ($empleado) {
             return $empleado->id_tipo_empleado == 2;
         });
         $vehiculos = Vehiculo::all();
-        return view('cuenta_Admin.viaje.create', compact('viajes', 'rutas', 'conductores', 'vehiculos'));
+        return view('cuenta_Admin.viaje.create', compact('viajes', 'rutas', 'conductores', 'vehiculos', 'Consulta'));
     }
 
     /**
