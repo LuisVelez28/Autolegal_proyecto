@@ -56,7 +56,7 @@
                                                 <label class="form-label" for="contrasena">Contraseña</label>
                                                 <input type="password" id="contrasena" name="contrasena"
                                                     class="form-control" />
-                                                <div class="valid-checks">
+                                                <div hidden class="valid-checks">
                                                     <ul class="checklist">
                                                         <li>Letra en minuscula</li>
                                                         <li>Letra en mayuscula</li>

@@ -8,11 +8,11 @@ let icon = document.querySelector(".icon");
 let show = true;
 
 passwordField.addEventListener("focus", () => {
-    validationBox.classList.remove("hide");
+    validationBox.removeAttribute("hidden");
 })
 
 passwordField.addEventListener("focusout", () => {
-    validationBox.classList.add("hide");
+    validationBox.setAttribute("hidden", "");
 })
 
 passwordField.addEventListener("input", () => {

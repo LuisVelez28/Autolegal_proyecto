@@ -13,7 +13,6 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request){
         /*use a dd() to show email and password of request*/
-        dd($request->all());
         
 
         $credentials= $request->validate([
@@ -21,16 +20,16 @@ class LoginController extends Controller
             'password' => ['required']
         ]);
 
-        dd($credentials);
-        /*
+        $credentials=$request->only('email', 'password');
+        
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('cuenta_admin.index');
+            return redirect()->intended('cuenta_Admin.indexAdmin');
         }
 
         return back()->withErrors([
             'email' => 'Las credenciales ingresadas son incorrectas.',
-        ])->onlyInput('email');*/
+        ])->onlyInput('email');
 
     }
 
