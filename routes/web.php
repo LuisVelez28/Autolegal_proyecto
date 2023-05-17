@@ -13,6 +13,7 @@ use App\Http\Controllers\TipoVehiculoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\ViajeController;
+use App\Models\Vehiculo;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,8 @@ Route::get('/rutas', function () {
 });
 
 Route::get('/CuentaAdmin', function () {
-    return view('cuenta_admin.indexAdmin');
+    $vehiculos= Vehiculo::all();
+    return view('cuenta_admin.indexAdmin', compact('vehiculos'));
 });
 
 Route::resource('/clientes', ClienteController::class);

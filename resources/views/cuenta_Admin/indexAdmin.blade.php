@@ -144,6 +144,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="vehi-data" value="{{$vehiculos}}"></input>
                 <div id='grafico'>
                 </div>        
             </main>
