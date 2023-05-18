@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('password')->unique();
             $table->string('email')->unique();
             $table->boolean('estado')->default(1);
-            $table->foreignId('id_rol_usuario')->constrained('rol_usuarios')->default(3);
+            $table->unsignedBigInteger('id_rol_usuario')->default(3);
+            $table->foreign('id_rol_usuario')->references('id')->on('rol_usuarios');
             //$table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

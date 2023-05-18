@@ -26,7 +26,7 @@
 
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registro</p>
 
-                                    <form class="mx-1 mx-md-4" method="post" action="">
+                                    <form class="mx-1 mx-md-4" method="post" action="{{route('validar-registro')}}">
                                         @csrf
 
                                         <div class="d-flex flex-row align-items-center mb-4">
@@ -35,6 +35,15 @@
 
                                                 <label class="form-label" for="nombre">Nombre</label>
                                                 <input type="text" id="nombre" name="nombre"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+
+                                                <label class="form-label" for="username">Nombre de usuario</label>
+                                                <input type="text" id="username" name="username"
                                                     class="form-control" />
                                             </div>
                                         </div>

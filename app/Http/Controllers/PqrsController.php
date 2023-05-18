@@ -24,7 +24,7 @@ class PqrsController extends Controller
     public function create()
     {
         //
-        return view('contactanos',compact('pqrs'));
+    return view('contactanos'/*,compact('pqrs')*/);
     }
 
     /**
@@ -33,6 +33,7 @@ class PqrsController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
         $pqr = new Pqrs();
         $pqr->nombre_cliente=$request->nombre_cliente;
         $pqr->email=$request->email;

@@ -20,7 +20,7 @@
                     <div class="col-md-6">
                         <label for="">Fecha Salida:</label>
                         <br>
-                        <input type="datetime-local" class="form-control" name="fecha_salida" value="{{$fecha_salida}}">
+                        <input type="datetime-local" class="form-control" name="fecha_salida">
                     </div>
                 </div>
                 <br>
