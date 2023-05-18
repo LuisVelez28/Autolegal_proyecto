@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Tipo_vehiculo;
 use App\Models\Vehiculo;
 use Illuminate\Http\Request;
+
 
 class VehiculoController extends Controller
 {
@@ -92,5 +94,11 @@ class VehiculoController extends Controller
         $vehiculo= Vehiculo::find($vehiculo);
         $vehiculo->delete();
         return redirect()->route('vehiculos.index');
+    }
+
+    public function generar_pdf(){ 
+        $vehiculos= Vehiculo::all();
+        $pdf = PDF\Pdf::loadView('cuenta_Admin.vehiculo.generar_pdf', compact('vehiculos'));
+        return $pdf->download('vehiculos.pdf');
     }
 }

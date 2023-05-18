@@ -83,4 +83,5 @@ class EmpleadoController extends Controller
         $empleado->delete();
         return redirect()->route('empleados.index');
     }
+    
 }

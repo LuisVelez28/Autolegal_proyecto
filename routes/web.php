@@ -39,6 +39,9 @@ Route::post('/validar-registro', [LoginController::class, 'registro'])->name('va
 Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('downloadCliente-pdf', '\App\Http\controllers\ClienteController@generar_pdf')->name('descargarClientes-pdf');
+Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
+
 /*
  Route::get('/contactanos', function () {
     return view('contactanos');
