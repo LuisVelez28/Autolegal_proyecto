@@ -29,10 +29,6 @@ use App\Models\Vehiculo;
 
 // traer la vista de la pagina principal que esta en la carpeta views/main/index.blade.php
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
-
 Route::middleware(['auth', 'Admin'])->group(function () {
 
     Route::get('/CuentaAdmin', function () {
@@ -53,9 +49,24 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::resource('/pqrs', PqrsController::class);
     Route::resource('/usuarios', UserController::class);
 
+    Route::get('downloadCliente-pdf', '\App\Http\controllers\ClienteController@generar_pdf')->name('descargarClientes-pdf');
+    Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
+
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+Route::middleware(['auth', 'Cliente'])->group(function () {
+
+    Route::get('/CuentaCliente', function () {
+        return view('indexUsuario');
+    })->name('CuentaCliente');
+    
 });
 
 Route::middleware(['guest'])->group(function () {
+
+    Route::view('/conocernos', 'conocernos');
+    Route::view('/rutas', 'rutas');
 
     Route::view('/registro', 'registro.registro')->name('registro');
     Route::view('/ingreso', 'ingreso.ingreso')->name('ingreso');
@@ -65,16 +76,13 @@ Route::middleware(['guest'])->group(function () {
 
 // No restriccion
 Route::resource('/contactanos', PqrsController::class);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::view('/conocernos','conocernos');
-Route::view('/rutas','rutas');
+// Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::view('/conocernos','conocernos');
+// Route::view('/rutas','rutas');
+Route::get('/', function () {
+    return view('index');
+})->name('index');
 
-Route::get('downloadCliente-pdf', '\App\Http\controllers\ClienteController@generar_pdf')->name('descargarClientes-pdf');
-Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
-
-Route::get('/CuentaUsuario', function () {
-    return view('indexUsuario');
-});
 
 
 
