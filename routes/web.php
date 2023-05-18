@@ -10,7 +10,6 @@ use App\Http\Controllers\RolUsuarioController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\TipoRutaController;
 use App\Http\Controllers\TipoVehiculoController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehiculoController;
 use App\Http\Controllers\ViajeController;
@@ -29,49 +28,39 @@ use App\Models\Vehiculo;
 
 // traer la vista de la pagina principal que esta en la carpeta views/main/index.blade.php
 
-Route::middleware(['auth', 'Admin'])->group(function () {
+Route::get('/', function () {
+    return view('index');
+});
+Route::view('/registro','registro.registro')->name('registro');
 
-    Route::get('/CuentaAdmin', function () {
-        $vehiculos = Vehiculo::all();
-        return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
-    })->name('CuentaAdmin');
-    Route::resource('/vehiculos', VehiculoController::class);
-    Route::resource('/vehiculos', VehiculoController::class);
-    Route::resource('/clientes', ClienteController::class);
-    Route::resource('/empleados', EmpleadoController::class);
-    Route::resource('/rutasyhorarios', RutaController::class);
-    Route::resource('/rolUsuario', RolUsuarioController::class);
-    Route::resource('/paradas', ParadaController::class);
-    Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
-    Route::resource('/tipoRuta', TipoRutaController::class);
-    Route::resource('/tipoVehiculo', TipoVehiculoController::class);
-    Route::resource('/viajes', ViajeController::class);
-    Route::resource('/pqrs', PqrsController::class);
-    Route::resource('/usuarios', UserController::class);
+Route::view('/ingreso','ingreso.ingreso')->name('ingreso');
 
-    Route::get('downloadCliente-pdf', '\App\Http\controllers\ClienteController@generar_pdf')->name('descargarClientes-pdf');
-    Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
+Route::post('/validar-registro', [LoginController::class, 'registro'])->name('validar-registro');
+Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('downloadCliente-pdf', '\App\Http\controllers\ClienteController@generar_pdf')->name('descargarClientes-pdf');
+Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
+
+/*
+ Route::get('/contactanos', function () {
+    return view('contactanos');
+ });
+ */
+Route::get('/conocernos', function () {
+    return view('conocernos');
+});
+Route::get('/rutas', function () {
+    return view('rutas');
 });
 
-Route::middleware(['auth', 'Cliente'])->group(function () {
+Route::get('/CuentaAdmin', function () {
+    $vehiculos= Vehiculo::all();
+    return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
+})->middleware(['auth','Admin'])->name('CuentaAdmin');
 
-    Route::get('/CuentaCliente', function () {
-        return view('indexUsuario');
-    })->name('CuentaCliente');
-    
-});
-
-Route::middleware(['guest'])->group(function () {
-
-    Route::view('/conocernos', 'conocernos');
-    Route::view('/rutas', 'rutas');
-
-    Route::view('/registro', 'registro.registro')->name('registro');
-    Route::view('/ingreso', 'ingreso.ingreso')->name('ingreso');
-    Route::post('/validar-registro', [LoginController::class, 'registro'])->name('validar-registro');
-    Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
+Route::get('/CuentaUsuario', function () {
+    return view('indexUsuario');
 });
 
 Route::resource('/clientes', ClienteController::class);
@@ -91,16 +80,8 @@ Route::resource('/tipoRuta',TipoRutaController::class);
 Route::resource('/tipoVehiculo', TipoVehiculoController::class);
 
 Route::resource('/viajes', ViajeController::class);
+Route::get('/viajes2', '\App\Http\controllers\ViajeController@index2')->name('viajes2');
 
 Route::resource('/contactanos', PqrsController::class);
-// Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-// Route::view('/conocernos','conocernos');
-// Route::view('/rutas','rutas');
-Route::get('/', function () {
-    return view('index');
-})->name('index');
 
-
-
-
-
+Route::resource('/vehiculos', VehiculoController::class);

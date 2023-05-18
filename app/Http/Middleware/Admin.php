@@ -15,11 +15,10 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // dd(auth()->user()->hasRole("Admin"));
         if (auth()->user()->hasRole("Admin")) {
-            return $next($request);
+            # code...
         }
-        
-        return redirect()->route('index');
+
+        return $next($request);
     }
 }

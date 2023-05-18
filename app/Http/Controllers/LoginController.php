@@ -25,31 +25,12 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
             //dd($request);
-            if (auth()->user()->hasRole("Admin")) {
-                return redirect()->intended('CuentaAdmin');
-            } elseif (auth()->user()->hasRole("Cliente")) {
-                return redirect()->intended('CuentaCliente');
-            } else{
-                echo("error");
-                // return redirect()->intended('CuentaCliente');
-            }
-            
+            return redirect()->intended('CuentaAdmin');
         }
 
         return back()->withErrors([
             'email' => 'Las credenciales ingresadas son incorrectas.',
         ])->onlyInput('email');
-
-    }
-
-    public function logout(Request $request){
-        
-        Auth::logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect()->route('ingreso');
 
     }
 
