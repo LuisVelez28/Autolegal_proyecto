@@ -4,6 +4,7 @@
     <h1>Contáctanos</h1>
     <p>Envíanos tus comentarios y sugerencias</p>
     <form action="{{ route('pqrs.store') }}" method="POST">
+        @csrf
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre_cliente" placeholder="Escribe tu nombre">

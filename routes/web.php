@@ -46,13 +46,13 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::resource('/tipoRuta', TipoRutaController::class);
     Route::resource('/tipoVehiculo', TipoVehiculoController::class);
     Route::resource('/viajes', ViajeController::class);
-    Route::resource('/pqrs', PqrsController::class);
+    Route::resource('/pqrs', PqrsController::class)->except(['create','store']);
     Route::resource('/usuarios', UserController::class);
 
     Route::get('downloadCliente-pdf', '\App\Http\controllers\ClienteController@generar_pdf')->name('descargarClientes-pdf');
     Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
 
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    // Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::middleware(['auth', 'Cliente'])->group(function () {
@@ -65,8 +65,10 @@ Route::middleware(['auth', 'Cliente'])->group(function () {
 
 Route::middleware(['guest'])->group(function () {
 
-    Route::view('/conocernos', 'conocernos');
-    Route::view('/rutas', 'rutas');
+    // Route::view('/conocernos', 'conocernos');
+    // Route::view('/rutas', 'rutas');
+
+    Route::resource('/pqrs', PqrsController::class)->only(['store','create']);
 
     Route::view('/registro', 'registro.registro')->name('registro');
     Route::view('/ingreso', 'ingreso.ingreso')->name('ingreso');
@@ -76,9 +78,9 @@ Route::middleware(['guest'])->group(function () {
 
 // No restriccion
 Route::resource('/contactanos', PqrsController::class);
-// Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-// Route::view('/conocernos','conocernos');
-// Route::view('/rutas','rutas');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::view('/conocernos','conocernos')->name('conocernos');
+Route::view('/rutas','rutas')->name('rutas');
 Route::get('/', function () {
     return view('index');
 })->name('index');
