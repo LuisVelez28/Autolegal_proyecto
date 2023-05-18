@@ -14,8 +14,8 @@ class PqrsController extends Controller
     public function index()
     {
         //
-        $pqrs = new Pqrs();
-        return view('cuenta_Admin.contactanos.view',compact('pqrs'));
+        $pqrs = Pqrs::all();
+        return view('cuenta_Admin.pqrs.view',compact('pqrs'));
     }
 
     /**
@@ -84,6 +84,6 @@ class PqrsController extends Controller
         //
         $pqr = Pqrs::find($pqrs);
         $pqr->delete();
-        return redirect()->route('contactanos.show');
+        return redirect()->route('pqrs.index');
     }
 }

@@ -50,5 +50,17 @@ class UsersSeeder extends Seeder
         $usuario->estado= 2;
         $usuario->id_rol_usuario= 2;
         $usuario->save();
+
+        $usuario=new User();
+        //$usuario->id_cliente=;
+        $usuario->id_empleado= 3;
+        $usuario->username= "cli";
+        //como se protege el de password
+        $usuario->password= Hash::make("cli");
+        $usuario->email= "cli@cli.com";
+        //esta campo es generado automaticamente
+        $usuario->estado= 2;
+        $usuario->id_rol_usuario= 3;
+        $usuario->save();
     }
 }

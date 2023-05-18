@@ -16,7 +16,12 @@ class RolesUsuarioSeeder extends Seeder
 
         $rol_usuario= new Rol_usuario();
         $rol_usuario->nombre = "Admin";
-        $rol_usuario->descripcion = "Control total de los registros de ls tablas";
+        $rol_usuario->descripcion = "Control total de los registros de las tablas";
+        $rol_usuario->save();
+
+        $rol_usuario= new Rol_usuario();
+        $rol_usuario->nombre = "Empleado";
+        $rol_usuario->descripcion = "Ver viajes asignados";
         $rol_usuario->save();
 
         $rol_usuario= new Rol_usuario();
