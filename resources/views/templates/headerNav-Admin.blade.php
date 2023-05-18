@@ -103,27 +103,15 @@
         </h6>
         <ul class="nav flex-column mb-2">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('descargarClientes-pdf')}}}}">
                     <span data-feather="file-text" class="align-text-bottom"></span>
-                    Empleados
+                    Clientes
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('descargarVehiculos-pdf')}}">
                     <span data-feather="file-text" class="align-text-bottom"></span>
                     Buses
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file-text" class="align-text-bottom"></span>
-                    Rutas
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file-text" class="align-text-bottom"></span>
-                    Viajes
                 </a>
             </li>
         </ul>

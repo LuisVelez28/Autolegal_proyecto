@@ -69,7 +69,8 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::view('/conocernos','conocernos');
 Route::view('/rutas','rutas');
 
-
+Route::get('downloadCliente-pdf', '\App\Http\controllers\ClienteController@generar_pdf')->name('descargarClientes-pdf');
+Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
 
 Route::get('/CuentaUsuario', function () {
     return view('indexUsuario');
