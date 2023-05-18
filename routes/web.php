@@ -80,6 +80,7 @@ Route::resource('/tipoRuta',TipoRutaController::class);
 Route::resource('/tipoVehiculo', TipoVehiculoController::class);
 
 Route::resource('/viajes', ViajeController::class);
+Route::get('/viajes2', '\App\Http\controllers\ViajeController@index2')->name('viajes2');
 
 Route::resource('/contactanos', PqrsController::class);
 
