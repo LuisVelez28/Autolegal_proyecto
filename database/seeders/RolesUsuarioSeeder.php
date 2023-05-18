@@ -20,6 +20,11 @@ class RolesUsuarioSeeder extends Seeder
         $rol_usuario->save();
 
         $rol_usuario= new Rol_usuario();
+        $rol_usuario->nombre = "Empleado";
+        $rol_usuario->descripcion = "Ver viajes asignados";
+        $rol_usuario->save();
+
+        $rol_usuario= new Rol_usuario();
         $rol_usuario->nombre = "Cliente";
         $rol_usuario->descripcion = "Inscripcion a viajes disponibles y visualizacion de viajes realizados";
         $rol_usuario->save();

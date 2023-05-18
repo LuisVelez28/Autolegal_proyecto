@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
+use App\Models\Empleado;
+use App\Models\Rol_usuario;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +17,10 @@ class UserController extends Controller
     public function index()
     {
         $usuarios= User::all();
-        return view('usuarios.', compact('usuarios'));
+        $empleados= Empleado::all();
+        //$clientes= Cliente::all();
+        $roles_usuario= Rol_usuario::all();
+        return view('cuenta_Admin.usuario.create', compact('usuarios', 'empleados'/*, 'clientes'*/, 'roles_usuario'));
     }
 
     /**
@@ -41,7 +47,7 @@ class UserController extends Controller
         $usuario->estado=$request->estado;
         $usuario->id_rol_usuario=$request->id_rol_usuario;
         $usuario->save();
-        return redirect()->route('usuarios.');
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -50,24 +56,29 @@ class UserController extends Controller
     public function show(User $usuario)
     {
         $usuario= User::find($usuario->id);
-        return view('usuarios.', compact('usuario'));
+        return view('cuenta_Admin.usuario.edit', compact('usuario'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $usuario)
+    public function edit(/*User*/ $usuario)
     {
-        $usuario= User::find($usuario->id);
-        return view('usuarios.', compact('usuario'));
+        $usuario= User::find($usuario);
+        $empleados= Empleado::all();
+        $emp= $usuario->id_empleado;
+        $rol = $usuario->id_rol_usuario;
+        //$clientes= Cliente::all();
+        $roles_usuario= Rol_usuario::all();
+        return view('cuenta_Admin.usuario.edit', compact('usuario','empleados','rol','emp','roles_usuario'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $usuario)
+    public function update(Request $request,/*User*/ $usuario)
     {
-        $usuario= User::find($usuario->id);
+        $usuario= User::find($usuario);
         $usuario->id_persona=$request->id_persona;
         $usuario->username=$request->username;
         //como se protege el de password
@@ -77,16 +88,16 @@ class UserController extends Controller
         //$usuario->estado=$request->estado;
         $usuario->id_rol_usuario=$request->id_rol_usuario;
         $usuario->save();
-        return redirect()->route('usuarios.');
+        return redirect()->route('usuarios.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $usuario)
+    public function destroy(/*User*/ $usuario)
     {
-        $usuario= User::find($usuario->id);
+        $usuario= User::find($usuario);
         $usuario->delete();
-        return redirect()->route('usuarios.');
+        return redirect()->route('usuarios.index');
     }
 }

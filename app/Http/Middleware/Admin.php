@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Models\User;
 
 class Admin
 {
@@ -16,9 +17,9 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
         if (auth()->user()->hasRole("Admin")) {
-            # code...
+            return $next($request);
         }
-
-        return $next($request);
+        
+        return redirect()->route('index');
     }
 }

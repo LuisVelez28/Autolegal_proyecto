@@ -6,7 +6,7 @@
     <form action="{{ route('pqrs.store') }}" method="POST">
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escribe tu nombre">
+            <input type="text" class="form-control" id="nombre" name="nombre_cliente" placeholder="Escribe tu nombre">
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
