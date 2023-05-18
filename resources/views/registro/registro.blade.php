@@ -48,6 +48,24 @@
                                                     class="form-control" />
                                             </div>
                                         </div>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <label for="validationCustom04" class="form-label">Departamento</label>
+                                                <select class="form-select" id="Departamento" required>
+                                                    <option value="">Escoge...</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <label for="validationCustom05" class="form-label">Municipio</label>
+                                                <select class="form-select" id="Municipio" required>
+                                                    <option value="">Escoge...</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
@@ -113,7 +131,8 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
     <script src='{{asset('js/functions/Script_Validation.js')}}'></script>
-    <script src='{{asset('js/functions/Script.js')}}'></script>
+    <script src='{{asset('js/functions/Script.js')}}'></script>}
+    <script src='{{asset('js/functions/ScriptAPI.js')}}'></script>
 </body>
 
 </html>
