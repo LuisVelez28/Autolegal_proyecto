@@ -23,10 +23,10 @@ class LoginController extends Controller
         ]);
 
         $credentials=$request->only('email', 'password');
-
+        //dd($credentials);
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            //dd($request);
+
             if (auth()->user()->hasRole("Admin")) {
                 return redirect()->intended('CuentaAdmin');
             } elseif (auth()->user()->hasRole("Cliente")) {
@@ -35,7 +35,7 @@ class LoginController extends Controller
                 echo("error");
                 // return redirect()->intended('CuentaCliente');
             }
-            
+
         }
 
         return back()->withErrors([
@@ -44,29 +44,8 @@ class LoginController extends Controller
 
     }
 
-    public function registro(Request $request){
-        
-        $usuario=new User();
-        $usuario->id_cliente=$request->id_cliente;
-        $usuario->id_empleado=$request->id_empleado;
-        $usuario->username=$request->username;
-        //como se protege el de password
-        $usuario->email=$request->email;
-        $usuario->password=Hash::make($request->password);
-        //esta campo es generado automaticamente
-        $usuario->estado=$request->estado;
-        $usuario->id_rol_usuario=$request->id_rol_usuario;
-        $usuario->save();
-
-        //genera errores
-        // Auth::login($usuario);
-
-        return redirect()->route('ingreso');
-
-    }
-
     public function logout(Request $request){
-        
+
         Auth::logout();
 
         $request->session()->invalidate();

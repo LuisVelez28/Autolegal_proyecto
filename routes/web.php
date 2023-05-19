@@ -6,6 +6,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ParadaController;
 use App\Http\Controllers\PqrsController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RolUsuarioController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\TipoRutaController;
@@ -60,7 +61,7 @@ Route::middleware(['auth', 'Cliente'])->group(function () {
     Route::get('/CuentaCliente', function () {
         return view('indexUsuario');
     })->name('CuentaCliente');
-    
+
 });
 
 Route::middleware(['guest'])->group(function () {
@@ -72,7 +73,7 @@ Route::middleware(['guest'])->group(function () {
 
     Route::view('/registro', 'registro.registro')->name('registro');
     Route::view('/ingreso', 'ingreso.ingreso')->name('ingreso');
-    Route::post('/validar-registro', [LoginController::class, 'registro'])->name('validar-registro');
+    Route::post('/validar-registro', [RegisterController::class, 'store'])->name('validar-registro');
     Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
 });
 
