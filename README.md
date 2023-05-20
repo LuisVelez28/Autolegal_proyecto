@@ -1,4 +1,5 @@
-# Autolegal_proyecto
+# PROYECTO AUTOLEGAL
+
 Proyecto de Programación con tecnologías web 2023-1
 Perfiles:
 
@@ -15,6 +16,21 @@ o
 correo->emp2@emp.com
 pass->emp2
 
-Cliente
-Correo->cli@cli.com
-pass->cli
+## Credenciales para Pruebas
+
+### Admin
+
+**Email:**
+admin@admin.com
+
+**Contraseña:**
+admin
+
+
+### Cliente
+
+**Email:**
+cli@cli.com
+
+**Contraseña:**
+cli

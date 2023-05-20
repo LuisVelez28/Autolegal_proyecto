@@ -42,6 +42,26 @@
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
 
+                                                <label class="form-label" for="cedula">Cedula</label>
+                                                <input type="number" id="cedula" name="cedula"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+
+                                                <label class="form-label" for="telefono">Numero de telefono</label>
+                                                <input type="number" id="telefono" name="telefono"
+                                                    class="form-control" />
+                                            </div>
+                                        </div>
+
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+
                                                 <label class="form-label" for="username">Nombre de usuario</label>
                                                 <input type="text" id="username" name="username"
                                                     class="form-control" />
@@ -81,7 +101,7 @@
                                             <div class="form-outline flex-fill mb-0">
 
                                                 <label class="form-label" for="contrasena">Contraseña</label>
-                                                <input type="password" id="contrasena" name="contrasena"
+                                                <input type="password" id="password" name="password"
                                                     class="form-control" />
                                                 <div hidden class="valid-checks">
                                                     <ul class="checklist">
@@ -97,9 +117,9 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <label class="form-label" for="conf-contrasena">Confirmar
+                                                <label class="form-label" for="conf-password">Confirmar
                                                     contraseña</label>
-                                                <input type="password" id="conf-contrasena" class="form-control" />
+                                                <input type="password" id="conf-password" name="password" class="form-control" />
                                             </div>
                                         </div>
 
