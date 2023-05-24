@@ -37,7 +37,6 @@ Route::middleware(['auth', 'Admin'])->group(function () {
         return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
     })->name('CuentaAdmin');
     Route::resource('/vehiculos', VehiculoController::class);
-    Route::resource('/vehiculos', VehiculoController::class);
     Route::resource('/clientes', ClienteController::class);
     Route::resource('/empleados', EmpleadoController::class);
     Route::resource('/rutasyhorarios', RutaController::class);
