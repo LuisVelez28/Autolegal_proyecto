@@ -16,11 +16,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usuarios= User::all();
+        $usuarios= User::whereNotNull('id_empleado')->get();
         $empleados= Empleado::all();
-        //$clientes= Cliente::all();
+        $clientes= Cliente::all();
         $roles_usuario= Rol_usuario::all();
-        return view('cuenta_Admin.usuario.create', compact('usuarios', 'empleados'/*, 'clientes'*/, 'roles_usuario'));
+        return view('cuenta_Admin.usuario.create', compact('usuarios', 'empleados', 'clientes', 'roles_usuario'));
     }
 
     /**
