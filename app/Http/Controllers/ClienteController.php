@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade as PDF;
 
 class ClienteController extends Controller
 {

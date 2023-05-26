@@ -49,7 +49,6 @@ Route::middleware(['auth', 'Admin'])->group(function () {
     Route::resource('/pqrs', PqrsController::class)->except(['create','store']);
     Route::resource('/usuarios', UserController::class);
 
-    Route::get('downloadCliente-pdf', '\App\Http\controllers\ClienteController@generar_pdf')->name('descargarClientes-pdf');
     Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
 
     // Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
