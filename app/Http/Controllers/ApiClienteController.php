@@ -6,16 +6,16 @@ use Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class apiClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         $clientes = Cliente::all();
 
-        return view('cuenta_Admin.cliente.create', compact('clientes')); //revisar que pagina se va usar para listar los clientes
+        return $clientes;
     }
 
     /**

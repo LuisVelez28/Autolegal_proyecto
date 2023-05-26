@@ -1,7 +1,10 @@
 <?php
 
-use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\apiClienteController;
+use App\Http\Controllers\apiEmpleadoController;
+use App\Http\Controllers\apiParadaController;
+use App\Http\Controllers\apiRolUsuarioController;
+use App\Http\Controllers\apiRutaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,14 +19,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware([ 'api', 'auth' ])->group(function () {
+Route::middleware(['auth', 'Admin'])->group(function () {
 
     //     Route::get('/CuentaAdmin', function () {
     //         $vehiculos = Vehiculo::all();
     //         return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
     //     })->name('CuentaAdmin');
     //     Route::resource('/vehiculos', VehiculoController::class);
-    Route::resource('/clientes', ClienteController::class)->names([
+    Route::resource('/clientes', apiClienteController::class)->names([
         'index' => 'api.clientes.index',
         'show' => 'api.clientes.show',
         'create' => 'api.clientes.create',
@@ -32,9 +35,49 @@ Route::middleware([ 'api', 'auth' ])->group(function () {
         'update' => 'api.clientes.update',
         'destroy' => 'api.clientes.destroy'
     ]);
-    //     Route::resource('/empleados', EmpleadoController::class);
-    //     Route::resource('/rutasyhorarios', RutaController::class);
-    //     Route::resource('/rolUsuario', RolUsuarioController::class);
+
+    Route::resource('/empleados', apiEmpleadoController::class)->names([
+        'index' => 'api.empleados.index',
+        'show' => 'api.empleados.show',
+        'create' => 'api.empleados.create',
+        'store' => 'api.empleados.store',
+        'edit' => 'api.empleados.edit',
+        'update' => 'api.empleados.update',
+        'destroy' => 'api.empleados.destroy'
+    ]);
+
+    Route::resource('/rutasyhorarios', apiRutaController::class)->names([
+        'index' => 'api.rutasyhorarios.index',
+        'show' => 'api.rutasyhorarios.show',
+        'create' => 'api.rutasyhorarios.create',
+        'store' => 'api.rutasyhorarios.store',
+        'edit' => 'api.rutasyhorarios.edit',
+        'update' => 'api.rutasyhorarios.update',
+        'destroy' => 'api.rutasyhorarios.destroy'
+    ]);
+
+    Route::resource('/rolUsuario', apiRolUsuarioController::class)->names([
+        'index' => 'api.rolUsuario.index',
+        'show' => 'api.rolUsuario.show',
+        'create' => 'api.rolUsuario.create',
+        'store' => 'api.rolUsuario.store',
+        'edit' => 'api.rolUsuario.edit',
+        'update' => 'api.rolUsuario.update',
+        'destroy' => 'api.rolUsuario.destroy'
+    ]);
+
+    Route::resource('/paradas', apiParadaController::class)->names([
+        'index' => 'api.paradas.index',
+        'show' => 'api.paradas.show',
+        'create' => 'api.paradas.create',
+        'store' => 'api.paradas.store',
+        'edit' => 'api.paradas.edit',
+        'update' => 'api.paradas.update',
+        'destroy' => 'api.paradas.destroy'
+    ]);
+
+
+
     //     Route::resource('/paradas', ParadaController::class);
     //     Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
     //     Route::resource('/tipoRuta', TipoRutaController::class);
