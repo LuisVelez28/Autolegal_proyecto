@@ -11,10 +11,19 @@ class ClienteController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $clientes = Cliente::all();
-        return view('cuenta_Admin.cliente.create', compact('clientes'));//revisar que pagina se va usar para listar los clientes
+        dd(($request->is('api/*')));
+
+        if ($request->requestType === 'api') {
+            // Lógica para solicitudes API
+            return $clientes;
+        } else {
+            // Lógica para solicitudes web
+            dd("queee");
+            return view('cuenta_Admin.cliente.create', compact('clientes')); //revisar que pagina se va usar para listar los clientes
+        }
     }
 
     /**
@@ -30,10 +39,10 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente= new Cliente();
-        $cliente->nombre=$request->nombre;
-        $cliente->cedula=$request->cedula;
-        $cliente->telefono=$request->telefono;
+        $cliente = new Cliente();
+        $cliente->nombre = $request->nombre;
+        $cliente->cedula = $request->cedula;
+        $cliente->telefono = $request->telefono;
         $cliente->save();
         return redirect()->route('clientes.index');
     }
@@ -43,16 +52,16 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        $cliente= Cliente::find($cliente->id);
+        $cliente = Cliente::find($cliente->id);
         return view('clientes.', compact('cliente'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(/*Cliente*/ $cliente)
+    public function edit(/*Cliente*/$cliente)
     {
-        $cliente= Cliente::find($cliente);
+        $cliente = Cliente::find($cliente);
         return view('cuenta_Admin.cliente.edit', compact('cliente'));
     }
 
@@ -61,10 +70,10 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        $cliente= Cliente::find($cliente->id);//revisar con documentacion actualizada
-        $cliente->nombre=$request->nombre;
-        $cliente->cedula=$request->cedula;
-        $cliente->telefono=$request->telefono;
+        $cliente = Cliente::find($cliente->id); //revisar con documentacion actualizada
+        $cliente->nombre = $request->nombre;
+        $cliente->cedula = $request->cedula;
+        $cliente->telefono = $request->telefono;
         $cliente->save();
         return redirect()->route('clientes.index');
     }
@@ -72,15 +81,15 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(/*Cliente*/ $cliente)
+    public function destroy(/*Cliente*/$cliente)
     {
-        $cliente= Cliente::find($cliente);//revisar con documentacion actualizada
+        $cliente = Cliente::find($cliente); //revisar con documentacion actualizada
         $cliente->delete();
         return redirect()->route('clientes.index');
-
     }
 
-    public function generar_pdf(){ 
+    public function generar_pdf()
+    {
         $clientes = Cliente::all();
         $pdf = PDF\Pdf::loadView('cuenta_Admin.cliente.generar_pdf', compact('clientes'));
         return $pdf->download('Clientes.pdf');
