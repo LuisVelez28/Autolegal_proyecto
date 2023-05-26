@@ -1,5 +1,5 @@
 let validationBox = document.querySelector(".valid-checks");
-let passwordField = document.getElementById("contrasena");
+let passwordField = document.getElementById("password");
 let checklist = document.querySelector(".checklist").getElementsByTagName("li");
 let lowerCount = 0,
     numberCount = 0,
