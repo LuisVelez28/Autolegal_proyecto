@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\TipoEmpleadoController;
-use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ParadaController;
@@ -37,7 +36,6 @@ Route::middleware(['auth', 'Admin'])->group(function () {
         return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
     })->name('CuentaAdmin');
     Route::resource('/vehiculos', VehiculoController::class);
-    Route::resource('/clientes', ClienteController::class);
     Route::resource('/empleados', EmpleadoController::class);
     Route::resource('/rutasyhorarios', RutaController::class);
     Route::resource('/rolUsuario', RolUsuarioController::class);

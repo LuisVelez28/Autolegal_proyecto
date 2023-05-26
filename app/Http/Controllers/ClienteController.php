@@ -14,7 +14,7 @@ class ClienteController extends Controller
     public function index()
     {
         $clientes = Cliente::all();
-        return view('cuenta_Admin.cliente.create', compact('clientes'));//revisar que pagina se va usar para listar los clientes
+        return $clientes;//revisar que pagina se va usar para listar los clientes
     }
 
     /**
@@ -35,7 +35,8 @@ class ClienteController extends Controller
         $cliente->cedula=$request->cedula;
         $cliente->telefono=$request->telefono;
         $cliente->save();
-        return redirect()->route('clientes.index');
+        $clientes = Cliente::all();
+        return $clientes;
     }
 
     /**
@@ -66,18 +67,18 @@ class ClienteController extends Controller
         $cliente->cedula=$request->cedula;
         $cliente->telefono=$request->telefono;
         $cliente->save();
-        return redirect()->route('clientes.index');
+        return $cliente;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(/*Cliente*/ $cliente)
+    public function destroy($id)
     {
-        $cliente= Cliente::find($cliente);//revisar con documentacion actualizada
+        $cliente = cliente::find($id);
         $cliente->delete();
-        return redirect()->route('clientes.index');
-
+        $clientes = Cliente::all();
+        return $clientes;
     }
 
     public function generar_pdf(){ 
