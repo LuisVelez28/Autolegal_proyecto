@@ -81,11 +81,15 @@ class ClienteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(/*Cliente*/$cliente)
+    public function destroy(Request $request, /*Cliente*/$cliente)
     {
         $cliente = Cliente::find($cliente); //revisar con documentacion actualizada
         $cliente->delete();
-        return redirect()->route('clientes.index');
+        if ($request->is('api/*')) {
+            return back()->with('success', 'Cliente eliminado correctamente');
+        } else {
+            return redirect()->route('clientes.index');
+        }
     }
 
     public function generar_pdf()
