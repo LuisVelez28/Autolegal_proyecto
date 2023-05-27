@@ -42,19 +42,19 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cliente $cliente)
+    public function show($id)
     {
-        $cliente= Cliente::find($cliente->id);
-        return view('clientes.', compact('cliente'));
+        $cliente= Cliente::find(intval($id));
+        return $cliente;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(/*Cliente*/ $cliente)
+    public function edit($id)
     {
-        $cliente= Cliente::find($cliente);
-        return view('cuenta_Admin.cliente.edit', compact('cliente'));
+        $cliente= Cliente::find(intval($id));
+        return $cliente;
     }
 
     /**
@@ -67,18 +67,26 @@ class ClienteController extends Controller
         $cliente->cedula=$request->cedula;
         $cliente->telefono=$request->telefono;
         $cliente->save();
-        return $cliente;
+        return response()->json("Cliente actualizado",200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
+    // public function destroy($id)
+    // {
+    //     $cliente = Cliente::find($id);
+    //     $cliente->delete();
+    //     $clientes = Cliente::all();
+    //     return $clientes;
+    // }
+
     public function destroy($id)
-    {
-        $cliente = cliente::find($id);
+    {   
+        
+        $cliente = Cliente::find(intval($id));
         $cliente->delete();
-        $clientes = Cliente::all();
-        return $clientes;
+        return response()->json("Cliente eliminado",200);
     }
 
     public function generar_pdf(){ 

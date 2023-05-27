@@ -29,58 +29,58 @@ use App\Models\Vehiculo;
 
 // traer la vista de la pagina principal que esta en la carpeta views/main/index.blade.php
 
-Route::middleware(['auth', 'Admin'])->group(function () {
+// Route::middleware(['auth', 'Admin'])->group(function () {
 
-    Route::get('/CuentaAdmin', function () {
-        $vehiculos = Vehiculo::all();
-        return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
-    })->name('CuentaAdmin');
-    Route::resource('/vehiculos', VehiculoController::class);
-    Route::resource('/empleados', EmpleadoController::class);
-    Route::resource('/rutasyhorarios', RutaController::class);
-    Route::resource('/rolUsuario', RolUsuarioController::class);
-    Route::resource('/paradas', ParadaController::class);
-    Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
-    Route::resource('/tipoRuta', TipoRutaController::class);
-    Route::resource('/tipoVehiculo', TipoVehiculoController::class);
-    Route::resource('/viajes', ViajeController::class);
-    Route::resource('/pqrs', PqrsController::class)->except(['create','store']);
-    Route::resource('/usuarios', UserController::class);
+//     Route::get('/CuentaAdmin', function () {
+//         $vehiculos = Vehiculo::all();
+//         return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
+//     })->name('CuentaAdmin');
+//     Route::resource('/vehiculos', VehiculoController::class);
+//     Route::resource('/empleados', EmpleadoController::class);
+//     Route::resource('/rutasyhorarios', RutaController::class);
+//     Route::resource('/rolUsuario', RolUsuarioController::class);
+//     Route::resource('/paradas', ParadaController::class);
+//     Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
+//     Route::resource('/tipoRuta', TipoRutaController::class);
+//     Route::resource('/tipoVehiculo', TipoVehiculoController::class);
+//     Route::resource('/viajes', ViajeController::class);
+//     Route::resource('/pqrs', PqrsController::class)->except(['create','store']);
+//     Route::resource('/usuarios', UserController::class);
 
-    Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
+//     Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
 
-    // Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-});
+//     // Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+// });
 
-Route::middleware(['auth', 'Cliente'])->group(function () {
+// Route::middleware(['auth', 'Cliente'])->group(function () {
 
-    Route::get('/CuentaCliente', function () {
-        return view('indexUsuario');
-    })->name('CuentaCliente');
+//     Route::get('/CuentaCliente', function () {
+//         return view('indexUsuario');
+//     })->name('CuentaCliente');
 
-});
+// });
 
-Route::middleware(['guest'])->group(function () {
+// Route::middleware(['guest'])->group(function () {
 
-    // Route::view('/conocernos', 'conocernos');
-    // Route::view('/rutas', 'rutas');
+//     // Route::view('/conocernos', 'conocernos');
+//     // Route::view('/rutas', 'rutas');
 
-    Route::resource('/pqrs', PqrsController::class)->only(['store','create']);
+//     Route::resource('/pqrs', PqrsController::class)->only(['store','create']);
 
-    Route::view('/registro', 'registro.registro')->name('registro');
-    Route::view('/ingreso', 'ingreso.ingreso')->name('ingreso');
-    Route::post('/validar-registro', [RegisterController::class, 'store'])->name('validar-registro');
-    Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
-});
+//     Route::view('/registro', 'registro.registro')->name('registro');
+//     Route::view('/ingreso', 'ingreso.ingreso')->name('ingreso');
+//     Route::post('/validar-registro', [RegisterController::class, 'store'])->name('validar-registro');
+//     Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
+// });
 
-// No restriccion
-Route::resource('/contactanos', PqrsController::class);
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-Route::view('/conocernos','conocernos')->name('conocernos');
-Route::view('/rutas','rutas')->name('rutas');
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+// // No restriccion
+// Route::resource('/contactanos', PqrsController::class);
+// Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+// Route::view('/conocernos','conocernos')->name('conocernos');
+// Route::view('/rutas','rutas')->name('rutas');
+// Route::get('/', function () {
+//     return view('index');
+// })->name('index');
 
 
 

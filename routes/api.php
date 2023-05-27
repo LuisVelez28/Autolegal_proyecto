@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource("clientes", ClienteController::class);
+Route::resource("clientes", ClienteController::class)->only(['store','index']);
 Route::delete("clientes/{id}", [ClienteController::class, "destroy"]);
