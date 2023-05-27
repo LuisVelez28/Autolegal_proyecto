@@ -36,7 +36,7 @@ class ClienteController extends Controller
         $cliente->telefono=$request->telefono;
         $cliente->save();
         $clientes = Cliente::all();
-        return $clientes;
+        return response()->json("Cliente Guardado",200);
     }
 
     /**
@@ -60,9 +60,10 @@ class ClienteController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Cliente $cliente)
-    {
-        $cliente= Cliente::find($cliente->id);//revisar con documentacion actualizada
+    public function update(Request $request)
+    {   
+        // $request=json_decode($request);
+        $cliente= Cliente::find(intval($request->id));//revisar con documentacion actualizada
         $cliente->nombre=$request->nombre;
         $cliente->cedula=$request->cedula;
         $cliente->telefono=$request->telefono;
