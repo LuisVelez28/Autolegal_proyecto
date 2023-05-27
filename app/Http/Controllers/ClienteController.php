@@ -15,7 +15,11 @@ class ClienteController extends Controller
     {
         $clientes = Cliente::all();
 
-        return view('cuenta_Admin.cliente.create', compact('clientes')); //revisar que pagina se va usar para listar los clientes
+        if ($request->is('api/*')) {
+            return $clientes;
+        } else {
+            return view('cuenta_Admin.cliente.create', compact('clientes')); //revisar que pagina se va usar para listar los clientes
+        }
     }
 
     /**
@@ -36,7 +40,11 @@ class ClienteController extends Controller
         $cliente->cedula = $request->cedula;
         $cliente->telefono = $request->telefono;
         $cliente->save();
-        return redirect()->route('clientes.index');
+        if ($request->is('api/*')) {
+            return back()->with('success', 'Cliente creado correctamente');
+        } else {
+            return redirect()->route('clientes.index');
+        }
     }
 
     /**

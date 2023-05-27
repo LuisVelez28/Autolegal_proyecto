@@ -1,10 +1,18 @@
 <?php
 
-use App\Http\Controllers\apiClienteController;
-use App\Http\Controllers\apiEmpleadoController;
-use App\Http\Controllers\apiParadaController;
-use App\Http\Controllers\apiRolUsuarioController;
-use App\Http\Controllers\apiRutaController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ParadaController;
+use App\Http\Controllers\PqrsController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\RolUsuarioController;
+use App\Http\Controllers\RutaController;
+use App\Http\Controllers\TipoEmpleadoController;
+use App\Http\Controllers\TipoRutaController;
+use App\Http\Controllers\TipoVehiculoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ViajeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,14 +27,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth', 'Admin'])->group(function () {
+//  Route::middleware(/*['auth', 'Admin']*/)->group(function () {
 
     //     Route::get('/CuentaAdmin', function () {
     //         $vehiculos = Vehiculo::all();
     //         return view('cuenta_Admin.indexAdmin', compact('vehiculos'));
     //     })->name('CuentaAdmin');
     //     Route::resource('/vehiculos', VehiculoController::class);
-    Route::resource('/clientes', apiClienteController::class)->names([
+    Route::resource('/clientes', ClienteController::class)->names([
         'index' => 'api.clientes.index',
         'show' => 'api.clientes.show',
         'create' => 'api.clientes.create',
@@ -36,7 +44,7 @@ Route::middleware(['auth', 'Admin'])->group(function () {
         'destroy' => 'api.clientes.destroy'
     ]);
 
-    Route::resource('/empleados', apiEmpleadoController::class)->names([
+    Route::resource('/empleados', EmpleadoController::class)->names([
         'index' => 'api.empleados.index',
         'show' => 'api.empleados.show',
         'create' => 'api.empleados.create',
@@ -46,7 +54,7 @@ Route::middleware(['auth', 'Admin'])->group(function () {
         'destroy' => 'api.empleados.destroy'
     ]);
 
-    Route::resource('/rutasyhorarios', apiRutaController::class)->names([
+    Route::resource('/rutasyhorarios', RutaController::class)->names([
         'index' => 'api.rutasyhorarios.index',
         'show' => 'api.rutasyhorarios.show',
         'create' => 'api.rutasyhorarios.create',
@@ -56,7 +64,7 @@ Route::middleware(['auth', 'Admin'])->group(function () {
         'destroy' => 'api.rutasyhorarios.destroy'
     ]);
 
-    Route::resource('/rolUsuario', apiRolUsuarioController::class)->names([
+    Route::resource('/rolUsuario', RolUsuarioController::class)->names([
         'index' => 'api.rolUsuario.index',
         'show' => 'api.rolUsuario.show',
         'create' => 'api.rolUsuario.create',
@@ -66,7 +74,7 @@ Route::middleware(['auth', 'Admin'])->group(function () {
         'destroy' => 'api.rolUsuario.destroy'
     ]);
 
-    Route::resource('/paradas', apiParadaController::class)->names([
+    Route::resource('/paradas', ParadaController::class)->names([
         'index' => 'api.paradas.index',
         'show' => 'api.paradas.show',
         'create' => 'api.paradas.create',
@@ -76,28 +84,81 @@ Route::middleware(['auth', 'Admin'])->group(function () {
         'destroy' => 'api.paradas.destroy'
     ]);
 
+    Route::resource('/tipoEmpleado', TipoEmpleadoController::class)->names([
+        'index' => 'api.tipoEmpleado.index',
+        'show' => 'api.tipoEmpleado.show',
+        'create' => 'api.tipoEmpleado.create',
+        'store' => 'api.tipoEmpleado.store',
+        'edit' => 'api.tipoEmpleado.edit',
+        'update' => 'api.tipoEmpleado.update',
+        'destroy' => 'api.tipoEmpleado.destroy'
+    ]);
 
+    Route::resource('/tipoRuta', TipoRutaController::class)->names([
+        'index' => 'api.tipoRuta.index',
+        'show' => 'api.tipoRuta.show',
+        'create' => 'api.tipoRuta.create',
+        'store' => 'api.tipoRuta.store',
+        'edit' => 'api.tipoRuta.edit',
+        'update' => 'api.tipoRuta.update',
+        'destroy' => 'api.tipoRuta.destroy'
+    ]);
 
-    //     Route::resource('/paradas', ParadaController::class);
-    //     Route::resource('/tipoEmpleado', TipoEmpleadoController::class);
-    //     Route::resource('/tipoRuta', TipoRutaController::class);
-    //     Route::resource('/tipoVehiculo', TipoVehiculoController::class);
-    //     Route::resource('/viajes', ViajeController::class);
-    //     Route::resource('/pqrs', PqrsController::class)->except(['create','store']);
-    //     Route::resource('/usuarios', UserController::class);
+    Route::resource('/tipoVehiculo', TipoVehiculoController::class)->names([
+        'index' => 'api.tipoVehiculo.index',
+        'show' => 'api.tipoVehiculo.show',
+        'create' => 'api.tipoVehiculo.create',
+        'store' => 'api.tipoVehiculo.store',
+        'edit' => 'api.tipoVehiculo.edit',
+        'update' => 'api.tipoVehiculo.update',
+        'destroy' => 'api.tipoVehiculo.destroy'
+    ]);
 
-    //     Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('descargarVehiculos-pdf');
+    Route::resource('/tipoVehiculo', TipoVehiculoController::class)->names([
+        'index' => 'api.tipoVehiculo.index',
+        'show' => 'api.tipoVehiculo.show',
+        'create' => 'api.tipoVehiculo.create',
+        'store' => 'api.tipoVehiculo.store',
+        'edit' => 'api.tipoVehiculo.edit',
+        'update' => 'api.tipoVehiculo.update',
+        'destroy' => 'api.tipoVehiculo.destroy'
+    ]);
+
+    Route::resource('/viajes', ViajeController::class)->names([
+        'index' => 'api.viajes.index',
+        'show' => 'api.viajes.show',
+        'create' => 'api.viajes.create',
+        'store' => 'api.viajes.store',
+        'edit' => 'api.viajes.edit',
+        'update' => 'api.viajes.update',
+        'destroy' => 'api.viajes.destroy'
+    ]);
+
+    Route::resource('/pqrs', PqrsController::class)->names([
+        'index' => 'api.pqrs.index',
+        'show' => 'api.pqrs.show',
+        'create' => 'api.pqrs.create',
+        'store' => 'api.pqrs.store',
+        'edit' => 'api.pqrs.edit',
+        'update' => 'api.pqrs.update',
+        'destroy' => 'api.pqrs.destroy'
+    ]);
+
+    Route::resource('/usuarios', UserController::class)->names([
+        'index' => 'api.usuarios.index',
+        'show' => 'api.usuarios.show',
+        'create' => 'api.usuarios.create',
+        'store' => 'api.usuarios.store',
+        'edit' => 'api.usuarios.edit',
+        'update' => 'api.usuarios.update',
+        'destroy' => 'api.usuarios.destroy'
+    ]);
+
+    Route::get('downloadVehiculo-pdf', '\App\Http\controllers\VehiculoController@generar_pdf')->name('api.descargarVehiculos-pdf');
 
     //     // Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-});
-
-// Route::middleware(['auth', 'Cliente'])->group(function () {
-
-//     Route::get('/CuentaCliente', function () {
-//         return view('indexUsuario');
-//     })->name('CuentaCliente');
-
 // });
+
 
 // Route::middleware(['guest'])->group(function () {
 
@@ -108,13 +169,13 @@ Route::middleware(['auth', 'Admin'])->group(function () {
 
 //     Route::view('/registro', 'registro.registro')->name('registro');
 //     Route::view('/ingreso', 'ingreso.ingreso')->name('ingreso');
-//     Route::post('/validar-registro', [RegisterController::class, 'store'])->name('validar-registro');
-//     Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('iniciar-sesion');
+    Route::post('/validar-registro', [RegisterController::class, 'store'])->name('api.validar-registro');
+    Route::post('/iniciar-sesion', [LoginController::class, 'authenticate'])->name('api.iniciar-sesion');
 // });
 
 // // No restriccion
 // Route::resource('/contactanos', PqrsController::class);
-// Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('api.logout');
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
